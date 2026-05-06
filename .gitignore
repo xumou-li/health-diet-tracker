@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+server/*.db
+*.egg-info/
+.venv/
+venv/
+
+# Node / uni-app
+node_modules/
+client/uni-app-user/dist/
+client/admin-web/dist/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local

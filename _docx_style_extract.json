@@ -1,0 +1,3590 @@
+{
+  "styles": {
+    "a4": {
+      "styleId": "a4",
+      "type": "paragraph",
+      "name": "Normal",
+      "basedOn": null,
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "21",
+      "bold": false,
+      "fonts": {}
+    },
+    "1": {
+      "styleId": "1",
+      "type": "paragraph",
+      "name": "heading 1",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "before": "240",
+        "after": "120",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": "0",
+      "fontSizeHalfPt": "30",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "2": {
+      "styleId": "2",
+      "type": "paragraph",
+      "name": "heading 2",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "before": "120",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": "1",
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体",
+        "hAnsi": "Arial"
+      }
+    },
+    "3": {
+      "styleId": "3",
+      "type": "paragraph",
+      "name": "heading 3",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "before": "120",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": "2",
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "4": {
+      "styleId": "4",
+      "type": "paragraph",
+      "name": "heading 4",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": "3",
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体",
+        "hAnsi": "Arial"
+      }
+    },
+    "5": {
+      "styleId": "5",
+      "type": "paragraph",
+      "name": "heading 5",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": "4",
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体"
+      }
+    },
+    "a6": {
+      "styleId": "a6",
+      "type": "character",
+      "name": "Default Paragraph Font",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "a7": {
+      "styleId": "a7",
+      "type": "table",
+      "name": "Normal Table",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "a8": {
+      "styleId": "a8",
+      "type": "numbering",
+      "name": "No List",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "a5": {
+      "styleId": "a5",
+      "type": "paragraph",
+      "name": "论文正文",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "firstLine": "480"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体"
+      }
+    },
+    "a9": {
+      "styleId": "a9",
+      "type": "paragraph",
+      "name": "caption",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "20",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体",
+        "hAnsi": "Arial",
+        "cs": "Arial"
+      }
+    },
+    "aa": {
+      "styleId": "aa",
+      "type": "paragraph",
+      "name": "Document Map",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "ab": {
+      "styleId": "ab",
+      "type": "paragraph",
+      "name": "annotation text",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "ac": {
+      "styleId": "ac",
+      "type": "paragraph",
+      "name": "Body Text",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {
+        "after": "120"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "30": {
+      "styleId": "30",
+      "type": "paragraph",
+      "name": "toc 3",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "left": "400"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {}
+    },
+    "ad": {
+      "styleId": "ad",
+      "type": "paragraph",
+      "name": "Balloon Text",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "18",
+      "bold": false,
+      "fonts": {}
+    },
+    "ae": {
+      "styleId": "ae",
+      "type": "paragraph",
+      "name": "footer",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "18",
+      "bold": false,
+      "fonts": {}
+    },
+    "af": {
+      "styleId": "af",
+      "type": "paragraph",
+      "name": "header",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "18",
+      "bold": false,
+      "fonts": {}
+    },
+    "10": {
+      "styleId": "10",
+      "type": "paragraph",
+      "name": "toc 1",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {}
+    },
+    "20": {
+      "styleId": "20",
+      "type": "paragraph",
+      "name": "toc 2",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "left": "200"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {}
+    },
+    "HTML": {
+      "styleId": "HTML",
+      "type": "paragraph",
+      "name": "HTML Preformatted",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体",
+        "hAnsi": "宋体"
+      }
+    },
+    "af0": {
+      "styleId": "af0",
+      "type": "paragraph",
+      "name": "Normal (Web)",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {}
+    },
+    "af1": {
+      "styleId": "af1",
+      "type": "paragraph",
+      "name": "Title",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {
+        "before": "240",
+        "after": "60"
+      },
+      "indent": {},
+      "outlineLvl": "0",
+      "fontSizeHalfPt": "32",
+      "bold": true,
+      "fonts": {
+        "ascii": "Arial",
+        "hAnsi": "Arial",
+        "cs": "Arial"
+      }
+    },
+    "af2": {
+      "styleId": "af2",
+      "type": "table",
+      "name": "Table Grid",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "af3": {
+      "styleId": "af3",
+      "type": "table",
+      "name": "Table Theme",
+      "basedOn": "a7",
+      "align": "center",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "21",
+      "bold": false,
+      "fonts": {}
+    },
+    "11": {
+      "styleId": "11",
+      "type": "table",
+      "name": "Table Colorful 1",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "12": {
+      "styleId": "12",
+      "type": "table",
+      "name": "Table Classic 1",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "21": {
+      "styleId": "21",
+      "type": "table",
+      "name": "Table Classic 2",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "31": {
+      "styleId": "31",
+      "type": "table",
+      "name": "Table Classic 3",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "40": {
+      "styleId": "40",
+      "type": "table",
+      "name": "Table Classic 4",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "13": {
+      "styleId": "13",
+      "type": "table",
+      "name": "Table Subtle 1",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "22": {
+      "styleId": "22",
+      "type": "table",
+      "name": "Table Subtle 2",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "14": {
+      "styleId": "14",
+      "type": "table",
+      "name": "Table 3D effects 1",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "23": {
+      "styleId": "23",
+      "type": "table",
+      "name": "Table 3D effects 2",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "32": {
+      "styleId": "32",
+      "type": "table",
+      "name": "Table 3D effects 3",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "15": {
+      "styleId": "15",
+      "type": "table",
+      "name": "Table List 1",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "24": {
+      "styleId": "24",
+      "type": "table",
+      "name": "Table List 2",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "33": {
+      "styleId": "33",
+      "type": "table",
+      "name": "Table List 3",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "41": {
+      "styleId": "41",
+      "type": "table",
+      "name": "Table List 4",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "50": {
+      "styleId": "50",
+      "type": "table",
+      "name": "Table List 5",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "6": {
+      "styleId": "6",
+      "type": "table",
+      "name": "Table List 6",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "7": {
+      "styleId": "7",
+      "type": "table",
+      "name": "Table List 7",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "8": {
+      "styleId": "8",
+      "type": "table",
+      "name": "Table List 8",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "16": {
+      "styleId": "16",
+      "type": "table",
+      "name": "Table Columns 1",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": true,
+      "fonts": {}
+    },
+    "25": {
+      "styleId": "25",
+      "type": "table",
+      "name": "Table Columns 2",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": true,
+      "fonts": {}
+    },
+    "34": {
+      "styleId": "34",
+      "type": "table",
+      "name": "Table Columns 3",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": true,
+      "fonts": {}
+    },
+    "42": {
+      "styleId": "42",
+      "type": "table",
+      "name": "Table Columns 4",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "51": {
+      "styleId": "51",
+      "type": "table",
+      "name": "Table Columns 5",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "17": {
+      "styleId": "17",
+      "type": "table",
+      "name": "Table Grid 1",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "26": {
+      "styleId": "26",
+      "type": "table",
+      "name": "Table Grid 2",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "35": {
+      "styleId": "35",
+      "type": "table",
+      "name": "Table Grid 3",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "43": {
+      "styleId": "43",
+      "type": "table",
+      "name": "Table Grid 4",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "52": {
+      "styleId": "52",
+      "type": "table",
+      "name": "Table Grid 5",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "60": {
+      "styleId": "60",
+      "type": "table",
+      "name": "Table Grid 6",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "70": {
+      "styleId": "70",
+      "type": "table",
+      "name": "Table Grid 7",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": true,
+      "fonts": {}
+    },
+    "80": {
+      "styleId": "80",
+      "type": "table",
+      "name": "Table Grid 8",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "18": {
+      "styleId": "18",
+      "type": "table",
+      "name": "Table Web 1",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "af4": {
+      "styleId": "af4",
+      "type": "table",
+      "name": "Table Professional",
+      "basedOn": "a7",
+      "align": "both",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "-6": {
+      "styleId": "-6",
+      "type": "table",
+      "name": "Colorful Grid Accent 6",
+      "basedOn": "a7",
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "af5": {
+      "styleId": "af5",
+      "type": "character",
+      "name": "Strong",
+      "basedOn": "a6",
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": true,
+      "fonts": {}
+    },
+    "af6": {
+      "styleId": "af6",
+      "type": "character",
+      "name": "page number",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "af7": {
+      "styleId": "af7",
+      "type": "character",
+      "name": "Hyperlink",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "HTML0": {
+      "styleId": "HTML0",
+      "type": "character",
+      "name": "HTML Code",
+      "basedOn": "a6",
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "20",
+      "bold": false,
+      "fonts": {
+        "ascii": "Courier New",
+        "hAnsi": "Courier New"
+      }
+    },
+    "1Char": {
+      "styleId": "1Char",
+      "type": "character",
+      "name": "标题 1 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "30",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "2Char": {
+      "styleId": "2Char",
+      "type": "character",
+      "name": "标题 2 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体",
+        "hAnsi": "Arial"
+      }
+    },
+    "3Char": {
+      "styleId": "3Char",
+      "type": "character",
+      "name": "标题 3 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "4Char": {
+      "styleId": "4Char",
+      "type": "character",
+      "name": "标题 4 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体",
+        "hAnsi": "Arial"
+      }
+    },
+    "5Char": {
+      "styleId": "5Char",
+      "type": "character",
+      "name": "标题 5 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "af8": {
+      "styleId": "af8",
+      "type": "paragraph",
+      "name": "参考文献标题",
+      "basedOn": "af1",
+      "align": "left",
+      "spacing": {
+        "before": "100",
+        "after": "0",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "a1": {
+      "styleId": "a1",
+      "type": "paragraph",
+      "name": "参考文献正文",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体"
+      }
+    },
+    "af9": {
+      "styleId": "af9",
+      "type": "paragraph",
+      "name": "附录标题",
+      "basedOn": "af1",
+      "align": "left",
+      "spacing": {
+        "before": "100",
+        "after": "0",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "afa": {
+      "styleId": "afa",
+      "type": "paragraph",
+      "name": "附录正文",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "firstLine": "200"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体"
+      }
+    },
+    "afb": {
+      "styleId": "afb",
+      "type": "paragraph",
+      "name": "结束语标题",
+      "basedOn": "af1",
+      "align": "left",
+      "spacing": {
+        "before": "100",
+        "after": "50",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "afc": {
+      "styleId": "afc",
+      "type": "paragraph",
+      "name": "结束语正文",
+      "basedOn": "a5",
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "afd": {
+      "styleId": "afd",
+      "type": "paragraph",
+      "name": "目录标题",
+      "basedOn": "af1",
+      "align": null,
+      "spacing": {
+        "before": "100",
+        "after": "150",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": "9",
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "27": {
+      "styleId": "27",
+      "type": "paragraph",
+      "name": "内封2基本信息",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "360",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "left": "1100"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {}
+    },
+    "28": {
+      "styleId": "28",
+      "type": "character",
+      "name": "内封2基本信息文字",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体",
+        "eastAsia": "宋体"
+      }
+    },
+    "29": {
+      "styleId": "29",
+      "type": "paragraph",
+      "name": "内封2署尾",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {
+        "line": "360",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体",
+        "hAnsi": "宋体"
+      }
+    },
+    "2a": {
+      "styleId": "2a",
+      "type": "paragraph",
+      "name": "内封2抬头",
+      "basedOn": "a5",
+      "align": "center",
+      "spacing": {
+        "line": "240",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "firstLine": "0"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "36",
+      "bold": true,
+      "fonts": {
+        "hAnsi": "宋体"
+      }
+    },
+    "2b": {
+      "styleId": "2b",
+      "type": "paragraph",
+      "name": "内封2英文标题",
+      "basedOn": "af1",
+      "align": null,
+      "spacing": {
+        "before": "0",
+        "after": "0",
+        "line": "400",
+        "lineRule": "exact"
+      },
+      "indent": {},
+      "outlineLvl": "9",
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "ascii": "Times New Roman",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "2c": {
+      "styleId": "2c",
+      "type": "paragraph",
+      "name": "内封2英文副标题",
+      "basedOn": "a4",
+      "align": "right",
+      "spacing": {},
+      "indent": {
+        "right": "300"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "30",
+      "bold": true,
+      "fonts": {}
+    },
+    "2d": {
+      "styleId": "2d",
+      "type": "paragraph",
+      "name": "内封2中文标题",
+      "basedOn": "af1",
+      "align": null,
+      "spacing": {
+        "before": "0",
+        "after": "0"
+      },
+      "indent": {},
+      "outlineLvl": "9",
+      "fontSizeHalfPt": "44",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体",
+        "hAnsi": "宋体"
+      }
+    },
+    "afe": {
+      "styleId": "afe",
+      "type": "paragraph",
+      "name": "内封抬头",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {
+        "line": "400",
+        "lineRule": "exact"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {}
+    },
+    "aff": {
+      "styleId": "aff",
+      "type": "paragraph",
+      "name": "内封统计",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "400",
+        "lineRule": "exact"
+      },
+      "indent": {
+        "left": "1260"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "aff0": {
+      "styleId": "aff0",
+      "type": "paragraph",
+      "name": "内封英文标题",
+      "basedOn": "ac",
+      "align": "center",
+      "spacing": {
+        "after": "0",
+        "line": "400",
+        "lineRule": "exact"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "32",
+      "bold": false,
+      "fonts": {
+        "eastAsia": "黑体"
+      }
+    },
+    "aff1": {
+      "styleId": "aff1",
+      "type": "paragraph",
+      "name": "内封中文标题",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {
+        "line": "400",
+        "lineRule": "exact"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "44",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "aff2": {
+      "styleId": "aff2",
+      "type": "paragraph",
+      "name": "外封基本信息",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "360",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "left": "1120"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "aff3": {
+      "styleId": "aff3",
+      "type": "character",
+      "name": "外封基本信息文字",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "aff4": {
+      "styleId": "aff4",
+      "type": "paragraph",
+      "name": "外封日期",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {
+        "line": "360",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体",
+        "hAnsi": "宋体"
+      }
+    },
+    "aff5": {
+      "styleId": "aff5",
+      "type": "character",
+      "name": "外封日期文字",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "ascii": "黑体",
+        "eastAsia": "黑体"
+      }
+    },
+    "aff6": {
+      "styleId": "aff6",
+      "type": "paragraph",
+      "name": "外封抬头",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {
+        "before": "240",
+        "after": "240"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "44",
+      "bold": false,
+      "fonts": {
+        "eastAsia": "黑体"
+      }
+    },
+    "Char2": {
+      "styleId": "Char2",
+      "type": "character",
+      "name": "页脚 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "18",
+      "bold": false,
+      "fonts": {
+        "ascii": "Times New Roman",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "Char3": {
+      "styleId": "Char3",
+      "type": "character",
+      "name": "页眉 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "18",
+      "bold": false,
+      "fonts": {
+        "ascii": "Times New Roman",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "aff7": {
+      "styleId": "aff7",
+      "type": "paragraph",
+      "name": "摘要英文标题",
+      "basedOn": "af1",
+      "align": null,
+      "spacing": {
+        "before": "0",
+        "after": "0",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": "9",
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "ascii": "Times New Roman",
+        "eastAsia": "Times New Roman",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "a": {
+      "styleId": "a",
+      "type": "paragraph",
+      "name": "摘要英文关键词",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {}
+    },
+    "a2": {
+      "styleId": "a2",
+      "type": "paragraph",
+      "name": "摘要英文正文",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {}
+    },
+    "2e": {
+      "styleId": "2e",
+      "type": "paragraph",
+      "name": "摘要英文正文2",
+      "basedOn": "a2",
+      "align": null,
+      "spacing": {},
+      "indent": {
+        "firstLine": "200"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "aff8": {
+      "styleId": "aff8",
+      "type": "paragraph",
+      "name": "摘要英文作者",
+      "basedOn": "aff9",
+      "align": null,
+      "spacing": {
+        "before": "0",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "aff9": {
+      "styleId": "aff9",
+      "type": "paragraph",
+      "name": "摘要中文作者",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {
+        "before": "50",
+        "after": "50",
+        "line": "360",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {}
+    },
+    "a3": {
+      "styleId": "a3",
+      "type": "paragraph",
+      "name": "摘要中文正文",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体"
+      }
+    },
+    "affa": {
+      "styleId": "affa",
+      "type": "paragraph",
+      "name": "摘要中文标题",
+      "basedOn": "af1",
+      "align": null,
+      "spacing": {
+        "before": "100",
+        "after": "0",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": "9",
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "eastAsia": "黑体"
+      }
+    },
+    "a0": {
+      "styleId": "a0",
+      "type": "paragraph",
+      "name": "摘要中文关键词",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {}
+    },
+    "affb": {
+      "styleId": "affb",
+      "type": "paragraph",
+      "name": "致谢标题",
+      "basedOn": "af9",
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "affc": {
+      "styleId": "affc",
+      "type": "paragraph",
+      "name": "致谢正文",
+      "basedOn": "afa",
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "2f": {
+      "styleId": "2f",
+      "type": "paragraph",
+      "name": "内封2中文副标题",
+      "basedOn": "2f0",
+      "align": null,
+      "spacing": {},
+      "indent": {
+        "right": "630"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "cs": "宋体"
+      }
+    },
+    "2f0": {
+      "styleId": "2f0",
+      "type": "paragraph",
+      "name": "内封2副标题",
+      "basedOn": "a4",
+      "align": "right",
+      "spacing": {},
+      "indent": {
+        "right": "300"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "30",
+      "bold": true,
+      "fonts": {
+        "eastAsia": "楷体_GB2312"
+      }
+    },
+    "affd": {
+      "styleId": "affd",
+      "type": "paragraph",
+      "name": "摘要中文副标题",
+      "basedOn": "a4",
+      "align": "right",
+      "spacing": {},
+      "indent": {
+        "right": "630"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "eastAsia": "黑体"
+      }
+    },
+    "affe": {
+      "styleId": "affe",
+      "type": "paragraph",
+      "name": "摘要英文副标题",
+      "basedOn": "a4",
+      "align": "right",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "right": "630"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": true,
+      "fonts": {}
+    },
+    "Char4": {
+      "styleId": "Char4",
+      "type": "character",
+      "name": "标题 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "32",
+      "bold": true,
+      "fonts": {
+        "ascii": "Arial",
+        "hAnsi": "Arial",
+        "cs": "Arial"
+      }
+    },
+    "Char0": {
+      "styleId": "Char0",
+      "type": "character",
+      "name": "正文文本 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "21",
+      "bold": false,
+      "fonts": {
+        "ascii": "Times New Roman",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "afff": {
+      "styleId": "afff",
+      "type": "paragraph",
+      "name": "表格标题",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": true,
+      "fonts": {
+        "ascii": "宋体"
+      }
+    },
+    "afff0": {
+      "styleId": "afff0",
+      "type": "paragraph",
+      "name": "表格正文",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体"
+      }
+    },
+    "afff1": {
+      "styleId": "afff1",
+      "type": "paragraph",
+      "name": "程序",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {},
+      "indent": {
+        "left": "200",
+        "right": "200"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "18",
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体"
+      }
+    },
+    "afff2": {
+      "styleId": "afff2",
+      "type": "paragraph",
+      "name": "论文正文警告",
+      "basedOn": "afc",
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": true,
+      "fonts": {}
+    },
+    "afff3": {
+      "styleId": "afff3",
+      "type": "character",
+      "name": "论文正文文字",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "eastAsia": "宋体"
+      }
+    },
+    "afff4": {
+      "styleId": "afff4",
+      "type": "character",
+      "name": "上标",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "afff5": {
+      "styleId": "afff5",
+      "type": "paragraph",
+      "name": "图片",
+      "basedOn": "a4",
+      "align": "center",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "ascii": "宋体"
+      }
+    },
+    "afff6": {
+      "styleId": "afff6",
+      "type": "character",
+      "name": "下标",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {}
+    },
+    "Char1": {
+      "styleId": "Char1",
+      "type": "character",
+      "name": "批注框文本 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "18",
+      "bold": false,
+      "fonts": {
+        "ascii": "Times New Roman",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "Char": {
+      "styleId": "Char",
+      "type": "character",
+      "name": "文档结构图 Char",
+      "basedOn": null,
+      "align": null,
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "21",
+      "bold": false,
+      "fonts": {
+        "ascii": "Times New Roman",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "afff7": {
+      "styleId": "afff7",
+      "type": "table",
+      "name": "论文表格",
+      "basedOn": "a7",
+      "align": "center",
+      "spacing": {},
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "21",
+      "bold": false,
+      "fonts": {}
+    },
+    "afff8": {
+      "styleId": "afff8",
+      "type": "paragraph",
+      "name": "一级标题",
+      "basedOn": "1",
+      "align": "center",
+      "spacing": {
+        "before": "100",
+        "after": "50"
+      },
+      "indent": {
+        "firstLine": "0",
+        "left": "0"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "hAnsi": "黑体"
+      }
+    },
+    "afff9": {
+      "styleId": "afff9",
+      "type": "paragraph",
+      "name": "二级标题",
+      "basedOn": "2",
+      "align": null,
+      "spacing": {
+        "before": "50"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "ascii": "Times New Roman",
+        "hAnsi": "Times New Roman"
+      }
+    },
+    "afffa": {
+      "styleId": "afffa",
+      "type": "paragraph",
+      "name": "三级标题",
+      "basedOn": "3",
+      "align": null,
+      "spacing": {
+        "before": "50"
+      },
+      "indent": {
+        "firstLine": "0",
+        "left": "0"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": null,
+      "bold": false,
+      "fonts": {
+        "ascii": "Times New Roman"
+      }
+    },
+    "afffb": {
+      "styleId": "afffb",
+      "type": "paragraph",
+      "name": "正文毕设",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "firstLine": "480"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {
+        "cs": "宋体"
+      }
+    },
+    "afffc": {
+      "styleId": "afffc",
+      "type": "paragraph",
+      "name": "毕设参考文献",
+      "basedOn": "a4",
+      "align": null,
+      "spacing": {
+        "before": "100",
+        "after": "100",
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {},
+      "outlineLvl": null,
+      "fontSizeHalfPt": "28",
+      "bold": false,
+      "fonts": {
+        "eastAsia": "黑体"
+      }
+    },
+    "afffd": {
+      "styleId": "afffd",
+      "type": "paragraph",
+      "name": "项毕设",
+      "basedOn": "a4",
+      "align": "left",
+      "spacing": {
+        "line": "300",
+        "lineRule": "auto"
+      },
+      "indent": {
+        "firstLine": "480"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "24",
+      "bold": false,
+      "fonts": {}
+    },
+    "afffe": {
+      "styleId": "afffe",
+      "type": "paragraph",
+      "name": "段",
+      "basedOn": null,
+      "align": "both",
+      "spacing": {},
+      "indent": {
+        "firstLine": "429"
+      },
+      "outlineLvl": null,
+      "fontSizeHalfPt": "21",
+      "bold": false,
+      "fonts": {}
+    }
+  },
+  "paragraphs": [
+    {
+      "styleId": "aff6",
+      "text": "南  阳  理  工  学  院",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "0",
+          "after": "0",
+          "line": "300",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "aff6",
+      "text": "本科生毕业设计(论文)",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "0",
+          "after": "0",
+          "line": "300",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "aff2",
+      "text": "学院(系)：  计算机与软件学院",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2352"
+        }
+      }
+    },
+    {
+      "styleId": "aff2",
+      "text": "专    业：     软件工程",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2352"
+        }
+      }
+    },
+    {
+      "styleId": "aff2",
+      "text": "学    生：      乔佳慧",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2352"
+        }
+      }
+    },
+    {
+      "styleId": "aff2",
+      "text": "指导教师：      徐二宝",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2352"
+        }
+      }
+    },
+    {
+      "styleId": "aff4",
+      "text": "完成日期    2024   年   05  月",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "300",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afe",
+      "text": "南阳理工学院本科生毕业设计（论文）",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "300",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "aff1",
+      "text": "基于YOLOv5的教室人数智能统计系统设计与实现",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "300",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "aff0",
+      "text": "Design and Implementation of Intelligent Classroom Population Statistics System Based on YOLOv5",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "300",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "aff",
+      "text": "总  计：毕业设计(论文) 52页",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "360",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "aff",
+      "text": "表  格：        3个",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "360",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "aff",
+      "text": "图  片：        29个",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "360",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "2a",
+      "text": "南 阳 理 工 学 院 本 科 毕 业 设 计(论文)",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "300",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "2d",
+      "text": "基于YOLOv5的教室人数智能统计系统设计与实现",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "300",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "2b",
+      "text": "Design and Implementation of Intelligent Classroom Population Statistics System Based on YOLOv5",
+      "local": {
+        "align": null,
+        "spacing": {
+          "line": "300",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "27",
+      "text": "学    院(系)：  计算机与软件学院",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2310"
+        }
+      }
+    },
+    {
+      "styleId": "27",
+      "text": "专       业：      软件工程",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2310"
+        }
+      }
+    },
+    {
+      "styleId": "27",
+      "text": "学 生 姓 名：       乔佳慧",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2310"
+        }
+      }
+    },
+    {
+      "styleId": "27",
+      "text": "学       号：     2015105160",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2310"
+        }
+      }
+    },
+    {
+      "styleId": "27",
+      "text": "指导教师(职称)：    徐二宝（讲师）",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2310"
+        }
+      }
+    },
+    {
+      "styleId": "27",
+      "text": "评 阅 教 师：     陈可（讲师）",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2310"
+        }
+      }
+    },
+    {
+      "styleId": "27",
+      "text": "完 成 日 期：   2024年5月7日",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "2310"
+        }
+      }
+    },
+    {
+      "styleId": "29",
+      "text": "南阳理工学院",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "29",
+      "text": "Nanyang Institute of Technology",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "affa",
+      "text": "基于YOLOv5的教室人数智能统计系统设计与实现",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "240",
+          "line": "360",
+          "lineRule": "auto"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "aff9",
+      "text": "软件工程 乔佳慧",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "120",
+          "after": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "a3",
+      "text": "当前教室人数实时统计需求日益增强，而传统人工点名或刷卡等方式存在效率低、准确性差等问题。首先基于YOLOv5深度学习框架构建密集人群统计模型，并对模型训练参数进行配置和调优，实现了教室中学生人数的快速识别与精准计数。然后利用PySide6设",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "firstLine": "480"
+        }
+      }
+    },
+    {
+      "styleId": "a0",
+      "text": "教室人数统计；目标检测；YOLOv5；PySide6；超参数调优",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "firstLine": "480"
+        }
+      }
+    },
+    {
+      "styleId": "aff7",
+      "text": "Design and Implementation of Intelligent Classroom Population Statistics System Based on YOLOv5",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "aff8",
+      "text": "Software Engineering MajorQIAO Jia-Hui",
+      "local": {
+        "align": null,
+        "spacing": {
+          "after": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "a2",
+      "text": "The demand for real-time statistics of classroom attendance is increasing, and traditional methods such as manual roll c",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "firstLine": "480"
+        }
+      }
+    },
+    {
+      "styleId": "a",
+      "text": "classroom population statistics; object detection; YOLOv5; PySide6; hyperparameter optimization",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "firstLine": "480"
+        }
+      }
+    },
+    {
+      "styleId": "afd",
+      "text": "目    录",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "240",
+          "after": "360"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "1 绪论1",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "1.1 研究背景1",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "1.2 国内外研究现状2",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "1.3 研究目的和意义2",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "1.4 研究主要内容3",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "1.5 论文的组织结构4",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "2 相关技术5",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "2.1 目标检测技术5",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "2.2 YOLOv5模型5",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "2.2.1 YOLO的发展6",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "2.2.2 YOLOv5网络结构6",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "2.3 PySide6技术8",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "2.4 MySQL技术8",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "3 系统需求分析9",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "3.1 可行性分析9",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "3.1.1 技术可行性9",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "3.1.2 经济可行性9",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "3.1.3 社会可行性10",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "3.2 需求描述10",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "3.2.1 功能性需求分析10",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "3.2.2 非功能性需求分析11",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "3.3 本章小节11",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "4 基于YOLOv5的密集人群智能统计模型构建12",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "4.1 模型构建流程12",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "4.2 预训练数据集制作和环境搭建13",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "4.2.1 密集人群数据集介绍13",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "4.2.2 制作密集人群数据集13",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "4.2.3 模型预训练实验环境14",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "4.3 基于YOLOv5的密集人群智能统计模型预训练及参数配置15",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "4.3.1 YOLOv5s预设模型15",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "4.3.2 训练参数15",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "4.3.3 数据集路径与配置16",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "4.4 基于YOLOv5的密集人群智能统计模型预训练及参数调优17",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "4.4.1 超参数调整17",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "4.4.2 数据增强策略18",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "4.5 模型评价指标设计19",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "4.6 本章小节21",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "5 基于YOLOv5的教室人数智能统计系统设计22",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "5.1 系统功能模块设计22",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "5.2 目标检测功能设计23",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "5.2.1 检测本地文件功能设计23",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "5.2.2 检测摄像头文件功能设计24",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "5.3 系统UI设计25",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "5.4 数据库设计25",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "5.5 本章小节26",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "6 基于YOLOv5的教室人数智能统计系统实现27",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "6.1 基于YOLOv5的人数统计模型预训练实现27",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "6.1.1 第一次模型预训练27",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "6.1.2 预训练参数调优31",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "6.1.3 第二次模型预训练32",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "6.2 本地文件读取模块实现34",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "6.3 摄像头读取模块实现35",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "6.4 检测操作模块实现37",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "6.4.1 调整参数模块37",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "6.4.2 开始检测模块38",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "6.5 检测结果显示模块实现39",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "6.6 系统UI界面模块实现41",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "6.6.1 左侧菜单栏41",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "30",
+      "text": "6.6.2 右侧菜单栏43",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "840"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "6.7 程序移植45",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "7 基于YOLOv5的教室人数智能统计系统测试46",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "7.1 本地文件的目标检测功能测试46",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "20",
+      "text": "7.2 摄像头文件的目标检测功能测试47",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {
+          "left": "420"
+        }
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "结束语50",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "参考文献51",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "10",
+      "text": "致谢52",
+      "local": {
+        "align": null,
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afff8",
+      "text": "绪论",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "240",
+          "after": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afff9",
+      "text": "研究背景",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "现今社会科技快速发展、社会信息化程度不断加深，随之而来的是，教育领域正经历一场深刻变革。各国政府和教育机构纷纷响应联合国教科文组织倡导的“教育2030议程”，积极推进教育信息化战略，旨在通过技术创新与融合，提升教育质量、扩大教育机会、促进教",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "近年来，基于计算机视觉和深度学习技术，在人脸识别、人体检测和行为分析等方面取得了重要成果，为智慧校园建设提供了新的技术路径。智慧校园建设旨在集成物联网、云计算、大数据、人工智能等先进技术，构建一个全方位、立体化的校园信息环境，实现教学、科研",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "传统的教室人数统计方法通常采用人工计数或简单的传感器设备，存在效率低、误差大等问题。人工点名不仅占用教师大量时间，影响教学进度，而且容易受人为因素干扰。刷卡记录需要学生主动配合，容易出现遗忘、遗漏等现象，并且无法反映学生在课堂中的实际到课情",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "综上所述，人工智能与互联互通的数字化教育平台相结合是教育管理的一次重大革新，标志着在人工智能技术的支持下，智慧校园建设已成为世界范围内教育领域的重大课题。其中，对作为教学中心的教室进行智能化管理，尤其是对教室人数的实时、准确统计，对于提升教",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afff9",
+      "text": "国内外研究现状",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "近年来，随着深度学习、计算机视觉技术等领域的快速发展，基于目标检测算法的人数统计系统已成为一个热门的研究方向。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "在国内，对于教室人数统计的研究，已经有多位学者基于YOLO系列算法进行了探索和实践。张明[2]利用YOLOv5算法对观影人数进行了有效检测，为教室人数统计提供了有益的参考。张哲华[3]则更侧重于视频监控技术的应用，通过系统仿真技术验证了其方",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "在国际上，对于基于YOLO算法的人数统计研究同样备受关注。Nguyen T N[7]等人研究了基于YOLOv5的改进检测网络模型在施工现场安全预警中的应用，这同样为教室人数统计提供了新的思路。此外，JIAZHEN GUO[8]等人研究了深度",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "尽管近年来计算机视觉技术在人数统计领域的应用取得显著进展，但针对教室这一特定场景仍面临诸多挑战。教室环境光线条件多变、人员密集且姿态各异、可能存在遮挡与重叠，对目标检测算法的鲁棒性、准确性提出较高要求。教室人数统计系统需要在保证高准确度的前",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "综上所述，基于YOLOv5的教室人数智能统计系统设计与实现在国内外研究中已经取得了显著的研究成果，但仍面临着许多机遇和挑战。本文主要研究如何对YOLOv5模型进行优化和超参数调优，以实现更加实时和准确的学生人数统计。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afff9",
+      "text": "研究目的和意义",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "教室是学校最宝贵的物理资源之一，精准的教室人数统计数据有助于教务部门根据实际需求动态调整教室使用计划，避免教室闲置或过度拥挤，实现教学资源的优化配置。特别是在大型高校，面对复杂的课程安排和庞大的学生群体，科学的教室调度对于提高教学设施利用率",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "教室人数统计在教学质量管理与优化中具有十分重要的意义。准确、实时的教室人数统计信息，能够帮助教师了解学生到课情况，并根据实际情况，及时调整教学方法，提升教学质量和教学效果。例如，对于到课率较低的班级，教师可以分析原因，并从教学方式、学风建设",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "教室人数统计既满足了日常教学管理的需要，又是校园安全工作的重要组成部分。在发生火灾、地震等突发事件时，及时掌握教室实时人数对于快速制定疏散方案、保障师生生命安全至关重要。此外，通过对教室内学生数量的定期统计，也能及时发现学生的异常聚集、教室",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "尽管教室人数统计的重要性和便利性越来越凸显，但目前大多数学校仍采用传统的人工点名、刷卡记录等教室人数统计方法，这些方法仍存在局限性，比如效率低、准确率低、难以应对大规模并发场景等。因此，本文设计一个基于YOLOv5的教室人数智能统计系统，通",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afff9",
+      "text": "研究主要内容",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "本文致力于设计并实现一个完整的教室人数智能统计系统，包括图像采集、目标检测、人数统计和结果展示等模块，系统将以YOLOv5深度学习模型为核心，使用PySide6技术进行开发。在此基础上，利用预先训练好的模型对图片或视频进行自动检测，获取目标",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffd",
+      "text": "目标检测技术原理",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "详细阐述目标检测技术的基本原理，并进一步说明目标检测算法中YOLOv5（You Only Look Once, Version 5）模型的基本原理、网络结构、技术特点，包括其独特的多尺度预测机制、CSPNet轻量级主干网络、SPP- PAN",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffd",
+      "text": "基于YOLOv5的人数统计模型构建",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "YOLOv5模型继承并优化了YOLO系列的特点，采用多尺度特征金字塔网络实现对不同大小目标的精准检测，结合CSPNet主干网络降低计算复杂度，提升运行效率，同时利用SPP-PAN头部结构强化多尺度特征融合，实现对人员边界的准确捕捉。模型还通",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "本系统在YOLOv5模型基础上增添了可视化界面图像采集、目标检测处理与数据展示的模块。图像采集模块可由用户选择从本地文件读取图片或视频，或通过高清摄像头采集教室实时视频流，目标检测处理通过预训练的基于YOLOv5模型的权重文件，进行实时目标",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffd",
+      "text": "基于YOLOv5的人数识别模型预训练和参数调优",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "针对教室人数统计任务，对YOLOv5模型进行针对性的预训练、微调与优化。选取大规模人脸数据集进行预训练，并结合教室场景特点进行数据增强、多尺度训练等策略，提升模型在复杂教室环境下的鲁棒性和准确性。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffd",
+      "text": "系统UI设计和实现",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "为了方便教育行业人员使用，本系统采用PySide6技术进行详细的UI设计，为用户提供简洁易用的系统界面，并通过相关技术美化界面，提高系统辨识度。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffd",
+      "text": "系统测试",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "通过对系统的测试，可以查看当前预训练模型的检测精度，在此基础上，可以有目的的选择不同动作姿态的数据集图片，进行二次训练，以达到更好的统计人数的效果。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afff9",
+      "text": "论文的组织结构",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "本设计的组织结构如下：",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "第一章绪论：本章阐述了本文的选题背景、国内外研究状况、研究意义、研究重点和研究思路，并对全文结构进行了梳理。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "第二章相关技术：本章主要介绍了目标检测技术、YOLOv5模型、PySide6、MySQL技术，这些是系统开发过程中所使用的关键技术。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "第三章系统需求分析：本章重点对系统进行了可行性分析，并对其进行了需求分析。具体从技术、经济和社会三个方面进行了可行性分析；需求分析主要包括功能需求分析和非功能需求分析。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "第四章基于YOLOv5的密集人群智能统计模型构建：本章主要介绍了密集人群智能统计模型的构建流程，具体包括预训练数据集制作和环境搭建、模型预训练参数配置和参数调优、模型评价指标设计。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "第五章基于YOLOv5的教室人数智能统计系统设计：本章首先介绍了系统功能的设计流程，包括功能模块图和算法流程图；其次，针对目标检测功能进行详细设计，具体包括对本地文件进行目标检测和对摄像头文件进行目标检测；然后，进行系统UI界面设计，将检测",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "第六章基于YOLOv5的教室人数智能统计系统实现：本章主要介绍系统部份功能的主要实现逻辑和功能代码，包括预训练模型实现，本地文件读取模块实现，摄像头读取模块实现，检测操作模块实现，检测结果显示模块实现，系统UI界面模块实现和程序移植模块实现",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "第七章基于YOLOv5的教室人数智能统计系统测试：本章主要针对本地文件的目标检测功能、摄像头文件的目标检测功能，进行用例分析和测试，分析是否符合正确结果或预期结构。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afff8",
+      "text": "相关技术",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "240",
+          "after": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "本章主要介绍开发本系统所需要使用的主要技术，包括目标检测技术、YOLOv5模型、PySide6技术、MySQL技术等，下面为详细说明。",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afff9",
+      "text": "目标检测技术",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "目标检测（Object Detection），也叫目标提取，是一种基于目标几何和统计特征的图像分割与统计技术，其可以看成图像分类与定位的结合。给定一张图片或者一段视频，目标检测系统能够识别出图片的目标并给出其位置。前期研究证明，建立高可靠性",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "目标检测的基本原理是利用深度神经网络对图像或视频数据进行特征提取，并在提取的特征上使用分类器和边框回归器来识别和定位物体。具体来说，算法通常分为两个阶段，即先验框选择阶段和目标分类阶段：在先验框选择阶段，算法根据输入数据的大小和比例，预先定",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "在计算机视觉和模式识别的领域，目标检测算法被细分为两大类：单阶段（One-stage）算法和两阶段（Two-stage）算法。其中，One-stage目标检测算法直接对目标进行预测分类，检测速度较快，实时性较强，但检测准确率略低，典型的On",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afff9",
+      "text": "YOLOv5模型",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "YOLOv5模型是一个在目标检测领域具有显著影响力的计算机视觉模型，它继承了YOLO（You Only Look Once）系列一贯的高性能和实时物体检测能力。YOLOv5由Ultralytics团队开发，并于2020年年中发布，由于其卓越",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffa",
+      "text": "YOLO的发展",
+      "local": {
+        "align": null,
+        "spacing": {
+          "before": "120"
+        },
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "作为一种基于CNN的单阶段检测器，YOLO完全放弃了传统目标检测算法的范式：“检测+验证”的步骤，而是选择将单个神经网络应用于完整图像——将图像划分为多个区域并预测每种方法的边界框并使这些边界框与概率区域同步。与传统模型相比，YOLO算法在",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    },
+    {
+      "styleId": "afffb",
+      "text": "YOLOv1最大特点在于实时性，即使处理大尺寸图像也能在短时间内完成目标检测。随后，在YOLOv1的基础上，YOLOv2提升了模型的定位精度和召回率，使得mAP（平均精度均值）有显著的提升。YOLOv3采用了一种新的网络结构Darknet-",
+      "local": {
+        "align": "both",
+        "spacing": {},
+        "indent": {}
+      }
+    }
+  ]
+}

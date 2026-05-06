@@ -1,0 +1,80 @@
+digraph DietFlow {
+    graph [
+        charset="UTF-8",
+        rankdir=TB,
+        splines=ortho,
+        nodesep=0.9,
+        ranksep=0.95,
+        pad=0.2,
+        fontname="Microsoft YaHei",
+        fontsize=18,
+        fontcolor="#000000",
+        bgcolor="white"
+    ];
+
+    node [
+        shape=box,
+        style="rounded",
+        fontname="Microsoft YaHei",
+        fontsize=15,
+        fontcolor="#000000",
+        color="#000000",
+        penwidth=1.2,
+        fillcolor="white",
+        margin="0.18,0.12"
+    ];
+
+    edge [
+        color="#000000",
+        fontcolor="#000000",
+        arrowsize=0.9,
+        penwidth=1.4,
+        arrowhead=normal
+    ];
+
+    start [shape=circle, label="", width=0.24, fixedsize=true, color="#000000", penwidth=1.2, group=g1];
+    end [shape=doublecircle, label="", width=0.28, fixedsize=true, color="#000000", penwidth=1.2, group=g2];
+
+    A1 [label="进入记录页", group=g1];
+    A2 [label="选择日期\n与餐次", group=g1];
+    A3 [label="跳转食物页", group=g1];
+    A4 [label="按关键词或分类\n检索食物", group=g1];
+    A5 [label="选择食物并\n输入重量", group=g1];
+
+    B1 [label="提交饮食记录", group=g2];
+    B2 [label="校验参数并\n查询食物", group=g2];
+    B3 [label="生成身体快照\n并换算营养", group=g2];
+    B4 [label="保存记录", group=g2];
+    B5 [label="返回记录页展示\n餐次数据与小计", group=g2];
+
+    route_mid [label="", shape=point, width=0.01, height=0.01, fixedsize=true, style=invis];
+    route_top [label="", shape=point, width=0.01, height=0.01, fixedsize=true, style=invis];
+
+    start -> A1 [weight=10];
+    A1 -> A2 [weight=10];
+    A2 -> A3 [weight=10];
+    A3 -> A4 [weight=10];
+    A4 -> A5 [weight=10];
+
+    B1 -> B2 [weight=10];
+    B2 -> B3 [weight=10];
+    B3 -> B4 [weight=10];
+    B4 -> B5 [weight=10];
+    B5 -> end [weight=10];
+
+    A5 -> route_mid [constraint=false, arrowhead=none, minlen=2, color="#000000", penwidth=1.3];
+    route_mid -> route_top [constraint=false, arrowhead=none, color="#000000", penwidth=1.3];
+    route_top -> B1 [constraint=false, color="#000000", penwidth=1.3];
+
+    { rank=same; start; B1; }
+    { rank=same; A1; B2; }
+    { rank=same; A2; B3; }
+    { rank=same; A3; B4; }
+    { rank=same; A4; B5; }
+    { rank=same; A5; end; }
+    { rank=same; A5; route_mid; end; }
+    { rank=same; start; route_top; B1; }
+
+    A5 -> route_mid [style=invis, weight=10];
+    route_top -> B1 [style=invis, weight=10];
+}

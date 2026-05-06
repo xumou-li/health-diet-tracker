@@ -1,0 +1,129 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "健康饮食",
+        "navigationBarBackgroundColor": "#4caf50",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/record/record",
+      "style": {
+        "navigationBarTitleText": "饮食记录"
+      }
+    },
+    {
+      "path": "pages/foods/foods",
+      "style": {
+        "navigationBarTitleText": "食物库"
+      }
+    },
+    {
+      "path": "pages/stats/stats",
+      "style": {
+        "navigationBarTitleText": "统计分析"
+      }
+    },
+    {
+      "path": "pages/ai/ai",
+      "style": {
+        "navigationBarTitleText": "AI助手",
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "pages/mine/mine",
+      "style": {
+        "navigationBarTitleText": "个人中心",
+        "navigationBarBackgroundColor": "#4caf50",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/mine/body-history",
+      "style": {
+        "navigationBarTitleText": "体重记录历史"
+      }
+    },
+    {
+      "path": "pages/mine/favorites",
+      "style": {
+        "navigationBarTitleText": "我的收藏"
+      }
+    },
+    {
+      "path": "pages/mine/favorites-edit",
+      "style": {
+        "navigationBarTitleText": "新建收藏"
+      }
+    },
+    {
+      "path": "pages/mine/profile-edit",
+      "style": {
+        "navigationBarTitleText": "编辑身体档案"
+      }
+    },
+    {
+      "path": "pages/mine/account-settings",
+      "style": {
+        "navigationBarTitleText": "账户设置"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "健康饮食记录",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f5f5f5",
+    "safeAreaInsetBottom": true
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4caf50",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
+    "safeAreaInsetBottom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/stats/stats",
+        "text": "统计",
+        "iconPath": "static/tabbar/stats.png",
+        "selectedIconPath": "static/tabbar/stats-active.png"
+      },
+      {
+        "pagePath": "pages/ai/ai",
+        "text": "AI助手",
+        "iconPath": "static/tabbar/ai.png",
+        "selectedIconPath": "static/tabbar/ai-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "static/tabbar/mine.png",
+        "selectedIconPath": "static/tabbar/mine-active.png"
+      }
+    ]
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  }
+}

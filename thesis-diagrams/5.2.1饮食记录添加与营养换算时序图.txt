@@ -1,0 +1,57 @@
+@startuml
+!theme plain
+skinparam defaultFontName "Microsoft YaHei"
+skinparam defaultFontSize 15
+skinparam monochrome true
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #666666
+skinparam sequenceArrowThickness 1.4
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 24
+skinparam lifelineStrategy solid
+
+skinparam sequence {
+  ParticipantBorderColor #555555
+  ParticipantBackgroundColor white
+  ParticipantFontColor #222222
+  ParticipantFontSize 15
+
+  ActorBorderColor #555555
+  ActorBackgroundColor white
+  ActorFontColor #222222
+  ActorFontSize 15
+
+  LifeLineBorderColor #777777
+  LifeLineBackgroundColor white
+  ArrowFontColor #333333
+}
+
+hide footbox
+
+title 5.2.1饮食记录添加与营养换算时序图
+
+actor "用户" as U
+participant "记录页" as RecordPage
+participant "食物页" as FoodPage
+participant "饮食记录接口" as MealAPI
+database "数据库" as DB
+
+U -> RecordPage : 选择日期与餐次
+U -> RecordPage : 点击“添加食物”
+RecordPage -> FoodPage : 跳转并传递日期、餐次
+FoodPage -> MealAPI : 请求食物列表
+MealAPI -> DB : 查询已审核食物
+DB --> MealAPI : 返回食物列表
+MealAPI --> FoodPage : 返回食物列表
+U -> FoodPage : 选择食物并输入重量
+FoodPage -> MealAPI : 提交新增记录
+MealAPI -> DB : 校验参数与食物状态
+MealAPI -> DB : 获取或创建身体快照
+MealAPI -> DB : 按重量换算营养并保存记录
+DB --> MealAPI : 返回保存结果
+MealAPI --> FoodPage : 返回添加成功
+FoodPage --> RecordPage : 返回并触发刷新
+
+@enduml
