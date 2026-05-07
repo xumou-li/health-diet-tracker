@@ -291,10 +291,13 @@ onShow(() => {
 }
 
 .mine-scroll {
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   box-sizing: border-box;
+  /* #ifdef H5 */
+  padding-bottom: 100rpx;
+  /* #endif */
 }
 
 .mine-content {
