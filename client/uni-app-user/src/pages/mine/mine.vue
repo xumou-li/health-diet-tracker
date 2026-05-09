@@ -629,10 +629,9 @@ onShow(() => {
 
 .metabolism-card {
   margin: 0 30rpx 20rpx;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: #fff;
   border-radius: 20rpx;
   padding: 30rpx;
-  color: #fff;
 
   .card-title {
     display: flex;
@@ -641,24 +640,23 @@ onShow(() => {
     margin-bottom: 24rpx;
     font-size: 30rpx;
     font-weight: bold;
+    color: #333;
 
     .confidence-badge {
       font-size: 20rpx;
       padding: 4rpx 16rpx;
       border-radius: 20rpx;
       font-weight: normal;
+      color: #fff;
 
       &.conf-high {
-        background: rgba(76, 175, 80, 0.3);
-        color: #a5d6a7;
+        background: #66bb6a;
       }
       &.conf-medium {
-        background: rgba(255, 152, 0, 0.3);
-        color: #ffcc80;
+        background: #ffa726;
       }
       &.conf-low {
-        background: rgba(244, 67, 54, 0.3);
-        color: #ef9a9a;
+        background: #ef5350;
       }
     }
   }
@@ -673,31 +671,30 @@ onShow(() => {
       min-width: 160rpx;
       text-align: center;
       padding: 24rpx 20rpx;
-      background: rgba(255, 255, 255, 0.08);
+      background: #e8f5e9;
       border-radius: 16rpx;
-      border: 2rpx solid rgba(255, 255, 255, 0.15);
 
       .coeff-number {
         display: block;
         font-size: 44rpx;
         font-weight: bold;
-        color: #4fc3f7;
+        color: #43a047;
         line-height: 1.2;
       }
       .coeff-label {
         display: block;
         font-size: 22rpx;
-        color: rgba(255, 255, 255, 0.6);
+        color: #999;
         margin-top: 4rpx;
       }
       .coeff-hint {
         display: block;
         font-size: 20rpx;
-        color: #ef9a9a;
+        color: #ef5350;
         margin-top: 8rpx;
 
         &.lower {
-          color: #a5d6a7;
+          color: #66bb6a;
         }
       }
     }
@@ -715,7 +712,7 @@ onShow(() => {
         .compare-label {
           display: block;
           font-size: 20rpx;
-          color: rgba(255, 255, 255, 0.5);
+          color: #999;
           margin-bottom: 6rpx;
         }
         .compare-value {
@@ -723,13 +720,13 @@ onShow(() => {
           font-size: 24rpx;
           font-weight: bold;
         }
-        &.formula .compare-value { color: rgba(255, 255, 255, 0.7); }
-        &.actual .compare-value { color: #4fc3f7; }
+        &.formula .compare-value { color: #999; }
+        &.actual .compare-value { color: #43a047; }
       }
 
       .compare-arrow {
         font-size: 24rpx;
-        color: rgba(255, 255, 255, 0.3);
+        color: #ccc;
       }
     }
   }
@@ -737,26 +734,26 @@ onShow(() => {
   .metabolism-calibrated {
     text-align: center;
     padding: 20rpx;
-    background: rgba(76, 175, 80, 0.15);
+    background: #e8f5e9;
     border-radius: 12rpx;
     margin-bottom: 16rpx;
 
     .calibrated-label {
       display: block;
       font-size: 22rpx;
-      color: rgba(255, 255, 255, 0.6);
+      color: #999;
       margin-bottom: 4rpx;
     }
     .calibrated-value {
       display: block;
       font-size: 32rpx;
       font-weight: bold;
-      color: #a5d6a7;
+      color: #4caf50;
     }
     .calibrated-note {
       display: block;
       font-size: 20rpx;
-      color: rgba(255, 255, 255, 0.4);
+      color: #999;
       margin-top: 4rpx;
     }
   }
@@ -766,7 +763,7 @@ onShow(() => {
 
     .footer-text {
       font-size: 20rpx;
-      color: rgba(255, 255, 255, 0.35);
+      color: #ccc;
     }
   }
 }
