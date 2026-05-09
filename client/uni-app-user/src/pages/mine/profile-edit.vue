@@ -44,6 +44,15 @@
               <text class="preview-unit">kcal/天</text>
             </view>
             <text class="preview-detail">{{ dailyCaloriePreviewDetail }}</text>
+            <!-- 代谢校准提示 -->
+            <view class="calibration-note" v-if="hasMetabolicCalibration">
+              <view class="calibration-divider">基于历史数据校准</view>
+              <view class="calibration-value">
+                <text class="calibration-num">{{ calibratedDailyCalorieText }}</text>
+                <text class="calibration-unit">kcal/天</text>
+              </view>
+              <text class="calibration-desc">代谢校准系数 {{ (profile?.metabolic_coefficient || 1).toFixed(3) }}，已根据您的实际体重变化与饮食记录反推真实代谢水平。</text>
+            </view>
           </view>
         </view>
 
@@ -235,6 +244,17 @@ const dailyCaloriePreviewDetail = computed(() => {
 const isRatioValid = computed(() => {
   const total = editForm.value.protein_ratio + editForm.value.fat_ratio + editForm.value.carb_ratio
   return Math.abs(total - 1) < 0.01
+})
+
+const hasMetabolicCalibration = computed(() => {
+  const mc = profile.value?.metabolic_coefficient
+  return Number.isFinite(mc) && mc !== 1 && Math.abs(mc - 1) > 0.01
+})
+
+const calibratedDailyCalorieText = computed(() => {
+  if (!dailyCaloriePreview.value) return '--'
+  const mc = profile.value?.metabolic_coefficient || 1
+  return Math.round(dailyCaloriePreview.value.calorie * mc)
 })
 
 const ratioTotal = computed(() => {
@@ -482,6 +502,40 @@ onMounted(() => {
     font-size: 22rpx;
     color: #666;
     line-height: 1.5;
+  }
+
+  .calibration-note {
+    margin-top: 20rpx;
+    padding-top: 20rpx;
+    border-top: 2rpx dashed rgba(76, 175, 80, 0.3);
+
+    .calibration-divider {
+      font-size: 20rpx;
+      color: #999;
+      margin-bottom: 8rpx;
+    }
+
+    .calibration-value {
+      .calibration-num {
+        font-size: 36rpx;
+        font-weight: bold;
+        color: #1b5e20;
+      }
+
+      .calibration-unit {
+        font-size: 20rpx;
+        color: #4caf50;
+        margin-left: 4rpx;
+      }
+    }
+
+    .calibration-desc {
+      display: block;
+      font-size: 20rpx;
+      color: #888;
+      line-height: 1.4;
+      margin-top: 6rpx;
+    }
   }
 }
 

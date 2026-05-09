@@ -40,8 +40,8 @@ def validate_health_goal(goal):
     return goal in [1, 2, 3]
 
 
-def validate_calorie_coefficient(coefficient):
-    """校验热量系数"""
+def validate_goal_factor(coefficient):
+    """校验热量目标系数（需大于0）"""
     try:
         return float(coefficient) > 0
     except (TypeError, ValueError):

@@ -8,7 +8,7 @@ from app.extensions import db
 from app.models import BodyRecord
 from app.utils.response import success, error
 from app.utils.auth import login_required
-from app.utils.validators import validate_activity_level, validate_health_goal, validate_calorie_coefficient, validate_password
+from app.utils.validators import validate_activity_level, validate_health_goal, validate_goal_factor, validate_password
 from app.services.nutrition import NutritionService
 from app.services.email_service import send_verification_code, verify_code
 
@@ -63,14 +63,14 @@ def update_profile():
     health_goal_changed = health_goal != user.health_goal
 
     if health_goal_changed and provided_calorie_coefficient is None:
-        calorie_coefficient = NutritionService.get_default_calorie_coefficient(health_goal)
+        calorie_coefficient = NutritionService.get_default_goal_factor(health_goal)
     elif provided_calorie_coefficient is None:
         calorie_coefficient = (
-            float(user.calorie_coefficient)
-            if user.calorie_coefficient is not None
-            else NutritionService.get_default_calorie_coefficient(user.health_goal)
+            float(user.goal_factor)
+            if user.goal_factor is not None
+            else NutritionService.get_default_goal_factor(user.health_goal)
         )
-    elif not validate_calorie_coefficient(provided_calorie_coefficient):
+    elif not validate_goal_factor(provided_calorie_coefficient):
         return error('热量系数参数错误')
     else:
         calorie_coefficient = round(float(provided_calorie_coefficient), 2)
@@ -108,9 +108,9 @@ def update_profile():
 
     try:
         current_calorie_coefficient = (
-            float(user.calorie_coefficient)
-            if user.calorie_coefficient is not None
-            else NutritionService.get_default_calorie_coefficient(user.health_goal)
+            float(user.goal_factor)
+            if user.goal_factor is not None
+            else NutritionService.get_default_goal_factor(user.health_goal)
         )
 
         # 检查是否需要重新计算指标
@@ -127,7 +127,7 @@ def update_profile():
         user.weight_kg = weight_kg
         user.activity_level = activity_level
         user.health_goal = health_goal
-        user.calorie_coefficient = calorie_coefficient
+        user.goal_factor = calorie_coefficient
         user.diet_preference = diet_preference
 
         # 昵称（可选更新）
@@ -151,7 +151,7 @@ def update_profile():
             user.bmi = metrics['bmi']
             user.bmr = metrics['bmr']
             user.daily_calorie_goal = metrics['daily_calorie_goal']
-            user.calorie_coefficient = metrics['calorie_coefficient']
+            user.goal_factor = metrics['calorie_coefficient']
             user.last_weight_update = date.today()
 
             # 应用个人代谢校准（如果已有）
@@ -170,8 +170,8 @@ def update_profile():
             body_record.activity_level = activity_level
             body_record.bmi = metrics['bmi']
             body_record.bmr = metrics['bmr']
-            body_record.daily_calorie_goal = metrics['daily_calorie_goal']
-            body_record.calorie_coefficient = metrics['calorie_coefficient']
+            body_record.daily_calorie_goal = user.daily_calorie_goal
+            body_record.goal_factor = metrics['calorie_coefficient']
             body_record.protein_ratio = user.protein_ratio
             body_record.fat_ratio = user.fat_ratio
             body_record.carb_ratio = user.carb_ratio
@@ -210,14 +210,14 @@ def update_health_goal():
     
     try:
         user.health_goal = health_goal
-        user.calorie_coefficient = NutritionService.get_default_calorie_coefficient(health_goal)
+        user.goal_factor = NutritionService.get_default_goal_factor(health_goal)
         
         # 重新计算每日热量目标
         daily_calorie = NutritionService.calculate_daily_calorie(
             user.bmr,
             user.activity_level,
             health_goal,
-            user.calorie_coefficient
+            user.goal_factor
         )
         user.daily_calorie_goal = daily_calorie
 
@@ -242,8 +242,8 @@ def update_health_goal():
         body_record.activity_level = user.activity_level
         body_record.bmi = user.bmi
         body_record.bmr = user.bmr
-        body_record.daily_calorie_goal = daily_calorie
-        body_record.calorie_coefficient = user.calorie_coefficient
+        body_record.daily_calorie_goal = user.daily_calorie_goal
+        body_record.goal_factor = user.goal_factor
         body_record.protein_ratio = user.protein_ratio
         body_record.fat_ratio = user.fat_ratio
         body_record.carb_ratio = user.carb_ratio
@@ -260,10 +260,10 @@ def update_health_goal():
 
         return success({
             'health_goal': health_goal,
-            'calorie_coefficient': float(user.calorie_coefficient),
-            'daily_calorie_goal': daily_calorie,
+            'calorie_coefficient': float(user.goal_factor),
+            'daily_calorie_goal': user.daily_calorie_goal,
             'nutrient_targets': NutritionService.calculate_nutrient_targets(
-                daily_calorie, user.protein_ratio, user.fat_ratio, user.carb_ratio
+                user.daily_calorie_goal, user.protein_ratio, user.fat_ratio, user.carb_ratio
             ),
             'nutrient_ratios': {
                 'protein': float(user.protein_ratio),

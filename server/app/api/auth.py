@@ -16,7 +16,7 @@ from app.utils.validators import (
     validate_gender,
     validate_activity_level,
     validate_health_goal,
-    validate_calorie_coefficient,
+    validate_goal_factor,
 )
 from app.services.nutrition import NutritionService
 
@@ -52,11 +52,11 @@ def register():
     health_goal = int(health_goal)
 
     if calorie_coefficient is None:
-        calorie_coefficient = NutritionService.get_default_calorie_coefficient(health_goal)
-    elif not validate_calorie_coefficient(calorie_coefficient):
+        goal_factor = NutritionService.get_default_goal_factor(health_goal)
+    elif not validate_goal_factor(calorie_coefficient):
         return error('热量系数参数错误')
     else:
-        calorie_coefficient = round(float(calorie_coefficient), 2)
+        goal_factor = round(float(calorie_coefficient), 2)
 
     # 如果没有提供比例，根据健康目标使用默认值
     if protein_ratio is None or fat_ratio is None or carb_ratio is None:
@@ -138,7 +138,7 @@ def register():
             gender,
             activity_level,
             health_goal,
-            calorie_coefficient
+            goal_factor
         )
         
         # 创建用户
@@ -152,7 +152,7 @@ def register():
         user.weight_kg = weight_kg
         user.activity_level = activity_level
         user.health_goal = health_goal
-        user.calorie_coefficient = metrics['calorie_coefficient']
+        user.goal_factor = metrics['calorie_coefficient']
         user.bmi = metrics['bmi']
         user.bmr = metrics['bmr']
         user.daily_calorie_goal = metrics['daily_calorie_goal']
@@ -174,7 +174,7 @@ def register():
         body_record.bmi = metrics['bmi']
         body_record.bmr = metrics['bmr']
         body_record.daily_calorie_goal = metrics['daily_calorie_goal']
-        body_record.calorie_coefficient = metrics['calorie_coefficient']
+        body_record.goal_factor = metrics['calorie_coefficient']
         body_record.protein_ratio = protein_ratio
         body_record.fat_ratio = fat_ratio
         body_record.carb_ratio = carb_ratio

@@ -3,11 +3,12 @@ from datetime import datetime, date
 from app.extensions import db
 
 
-def _default_calorie_coefficient(health_goal):
+def _default_goal_factor(health_goal):
+    """根据健康目标返回默认热量目标系数（0.85=减脂, 1.00=维持, 1.15=增肌）"""
     return {
-        1: 1.00,
-        2: 0.85,
-        3: 1.15,
+        1: 1.00,  # 维持：TDEE等量摄入
+        2: 0.85,  # 减脂：15%热量缺口
+        3: 1.15,  # 增肌：15%热量盈余
     }.get(health_goal, 1.00)
 
 
@@ -35,7 +36,8 @@ class User(db.Model):
     weight_kg = db.Column(db.Numeric(5, 2), nullable=False, comment='体重(kg)')
     activity_level = db.Column(db.SmallInteger, nullable=False, comment='1=久坐, 2=轻度, 3=中度, 4=高强度')
     health_goal = db.Column(db.SmallInteger, default=1, comment='1=维持, 2=减脂, 3=增肌')
-    calorie_coefficient = db.Column(db.Numeric(4, 2), nullable=False, default=1.00, comment='热量目标系数')
+    goal_factor = db.Column(db.Numeric(4, 2), nullable=False, default=1.00,
+                             comment='热量目标系数（0.85=减脂, 1.00=维持, 1.15=增肌）')
     diet_preference = db.Column(db.String(100), comment='饮食偏好标签,逗号分隔')
     bmr = db.Column(db.Integer, nullable=False, comment='基础代谢率(kcal/天)')
     daily_calorie_goal = db.Column(db.Integer, nullable=False, comment='每日推荐热量(kcal)')
@@ -84,7 +86,7 @@ class User(db.Model):
             'weight_kg': float(self.weight_kg) if self.weight_kg else None,
             'activity_level': self.activity_level,
             'health_goal': self.health_goal,
-            'calorie_coefficient': float(self.calorie_coefficient) if self.calorie_coefficient is not None else _default_calorie_coefficient(self.health_goal),
+            'calorie_coefficient': float(self.goal_factor) if self.goal_factor is not None else _default_goal_factor(self.health_goal),
             'diet_preference': self.diet_preference,
             'bmr': self.bmr,
             'daily_calorie_goal': self.daily_calorie_goal,
@@ -112,7 +114,8 @@ class BodyRecord(db.Model):
     bmi = db.Column(db.Numeric(4, 2), nullable=False, comment='BMI值')
     bmr = db.Column(db.Integer, nullable=False, comment='基础代谢率(kcal/天)')
     daily_calorie_goal = db.Column(db.Integer, nullable=False, comment='当日推荐总热量(kcal)')
-    calorie_coefficient = db.Column(db.Numeric(4, 2), nullable=False, default=1.00, comment='当日热量目标系数')
+    goal_factor = db.Column(db.Numeric(4, 2), nullable=False, default=1.00,
+                             comment='热量目标系数（0.85=减脂, 1.00=维持, 1.15=增肌）')
     protein_ratio = db.Column(db.Numeric(3, 2), default=0.20, comment='蛋白质占比')
     fat_ratio = db.Column(db.Numeric(3, 2), default=0.25, comment='脂肪占比')
     carb_ratio = db.Column(db.Numeric(3, 2), default=0.55, comment='碳水占比')
@@ -135,7 +138,7 @@ class BodyRecord(db.Model):
             'bmi': float(self.bmi) if self.bmi else None,
             'bmr': self.bmr,
             'daily_calorie_goal': self.daily_calorie_goal,
-            'calorie_coefficient': float(self.calorie_coefficient) if self.calorie_coefficient is not None else 1.0,
+            'calorie_coefficient': float(self.goal_factor) if self.goal_factor is not None else 1.0,
             'protein_ratio': float(self.protein_ratio) if self.protein_ratio is not None else 0.20,
             'fat_ratio': float(self.fat_ratio) if self.fat_ratio is not None else 0.25,
             'carb_ratio': float(self.carb_ratio) if self.carb_ratio is not None else 0.55,

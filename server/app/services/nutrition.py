@@ -27,8 +27,8 @@ class NutritionService:
     }
 
     @classmethod
-    def get_default_calorie_coefficient(cls, health_goal=1):
-        """根据健康目标获取默认热量系数"""
+    def get_default_goal_factor(cls, health_goal=1):
+        """根据健康目标获取默认热量目标系数（0.85=减脂, 1.00=维持, 1.15=增肌）"""
         return cls.GOAL_FACTORS.get(health_goal, cls.GOAL_FACTORS[1])
     
     @staticmethod
@@ -70,18 +70,19 @@ class NutritionService:
             return int(base - 161)
     
     @classmethod
-    def calculate_daily_calorie(cls, bmr, activity_level, health_goal, calorie_coefficient=None):
+    def calculate_daily_calorie(cls, bmr, activity_level, health_goal, goal_factor=None):
         """
         计算每日推荐热量
-        TDEE = BMR * 活动系数 * 目标系数
+        TDEE = BMR * 活动系数 * 目标系数(goal_factor)
+        goal_factor 由用户指定或根据健康目标使用默认值
         """
         activity_factor = cls.ACTIVITY_FACTORS.get(activity_level, 1.2)
-        goal_factor = (
-            float(calorie_coefficient)
-            if calorie_coefficient is not None
-            else cls.get_default_calorie_coefficient(health_goal)
+        effective_goal_factor = (
+            float(goal_factor)
+            if goal_factor is not None
+            else cls.get_default_goal_factor(health_goal)
         )
-        return int(bmr * activity_factor * goal_factor)
+        return int(bmr * activity_factor * effective_goal_factor)
     
     @classmethod
     def get_default_nutrient_ratios(cls, health_goal=1):
@@ -176,23 +177,23 @@ class NutritionService:
         gender,
         activity_level,
         health_goal,
-        calorie_coefficient=None
+        goal_factor=None
     ):
         """
         一次性计算用户所有健康指标
         """
         bmi = cls.calculate_bmi(weight_kg, height_cm)
         bmr = cls.calculate_bmr(weight_kg, height_cm, age, gender)
-        effective_coefficient = (
-            float(calorie_coefficient)
-            if calorie_coefficient is not None
-            else cls.get_default_calorie_coefficient(health_goal)
+        effective_goal_factor = (
+            float(goal_factor)
+            if goal_factor is not None
+            else cls.get_default_goal_factor(health_goal)
         )
         daily_calorie = cls.calculate_daily_calorie(
             bmr,
             activity_level,
             health_goal,
-            effective_coefficient
+            effective_goal_factor
         )
 
         return {
@@ -200,7 +201,7 @@ class NutritionService:
             'bmi_status': cls.get_bmi_status(bmi),
             'bmr': bmr,
             'daily_calorie_goal': daily_calorie,
-            'calorie_coefficient': effective_coefficient,
+            'calorie_coefficient': effective_goal_factor,
             'nutrient_targets': cls.calculate_nutrient_targets(daily_calorie)
         }
     

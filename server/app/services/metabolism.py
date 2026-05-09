@@ -181,7 +181,7 @@ class MetabolismService:
                 user.activity_level, 1.2
             )
             calibrated_tdee = int(user.bmr * activity_factor * coefficient)
-            user.daily_calorie_goal = int(calibrated_tdee * float(user.calorie_coefficient))
+            user.daily_calorie_goal = int(calibrated_tdee * float(user.goal_factor))
 
             # 更新最新 BodyRecord
             latest = BodyRecord.query.filter_by(

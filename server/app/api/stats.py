@@ -506,7 +506,7 @@ def get_metabolism_insight():
     if data['is_calibrated']:
         coef = data.get('stored_coefficient', data['coefficient'])
         calibrated_tdee = int(user.bmr * activity_factor * coef)
-        calibrated_goal = int(calibrated_tdee * float(user.calorie_coefficient))
+        calibrated_goal = int(calibrated_tdee * float(user.goal_factor))
         data['calibrated_tdee'] = calibrated_tdee
         data['calibrated_daily_goal'] = calibrated_goal
         data['original_daily_goal'] = user.daily_calorie_goal

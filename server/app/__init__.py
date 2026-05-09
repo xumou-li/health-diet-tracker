@@ -54,8 +54,12 @@ def patch_sqlite_schema(app):
 
         if 'users' in inspector.get_table_names():
             user_columns = {column['name'] for column in inspector.get_columns('users')}
-            if 'calorie_coefficient' not in user_columns:
-                connection.execute(text('ALTER TABLE users ADD COLUMN calorie_coefficient NUMERIC(4, 2)'))
+            # 兼容旧列名：重命名 calorie_coefficient → goal_factor
+            if 'calorie_coefficient' in user_columns and 'goal_factor' not in user_columns:
+                connection.execute(text('ALTER TABLE users RENAME COLUMN calorie_coefficient TO goal_factor'))
+                user_columns = {column['name'] for column in inspector.get_columns('users')}
+            if 'goal_factor' not in user_columns:
+                connection.execute(text('ALTER TABLE users ADD COLUMN goal_factor NUMERIC(4, 2)'))
             if 'daily_ai_calls' not in user_columns:
                 connection.execute(text('ALTER TABLE users ADD COLUMN daily_ai_calls INTEGER DEFAULT 0'))
             if 'last_ai_call_date' not in user_columns:
@@ -71,7 +75,7 @@ def patch_sqlite_schema(app):
                 text(
                     """
                     UPDATE users
-                    SET calorie_coefficient = ROUND(
+                    SET goal_factor = ROUND(
                         CASE
                             WHEN bmr IS NOT NULL AND bmr > 0 THEN
                                 CAST(daily_calorie_goal AS REAL) /
@@ -88,15 +92,19 @@ def patch_sqlite_schema(app):
                         END,
                         2
                     )
-                    WHERE calorie_coefficient IS NULL
+                    WHERE goal_factor IS NULL
                     """
                 )
             )
 
         if 'body_records' in inspector.get_table_names():
             body_record_columns = {column['name'] for column in inspector.get_columns('body_records')}
-            if 'calorie_coefficient' not in body_record_columns:
-                connection.execute(text('ALTER TABLE body_records ADD COLUMN calorie_coefficient NUMERIC(4, 2)'))
+            # 兼容旧列名：重命名 calorie_coefficient → goal_factor
+            if 'calorie_coefficient' in body_record_columns and 'goal_factor' not in body_record_columns:
+                connection.execute(text('ALTER TABLE body_records RENAME COLUMN calorie_coefficient TO goal_factor'))
+                body_record_columns = {column['name'] for column in inspector.get_columns('body_records')}
+            if 'goal_factor' not in body_record_columns:
+                connection.execute(text('ALTER TABLE body_records ADD COLUMN goal_factor NUMERIC(4, 2)'))
             if 'metabolic_coefficient' not in body_record_columns:
                 connection.execute(text('ALTER TABLE body_records ADD COLUMN metabolic_coefficient NUMERIC(5, 3) DEFAULT 1.000'))
 
@@ -104,7 +112,7 @@ def patch_sqlite_schema(app):
                 text(
                     """
                     UPDATE body_records
-                    SET calorie_coefficient = ROUND(
+                    SET goal_factor = ROUND(
                         CASE
                             WHEN bmr IS NOT NULL AND bmr > 0 THEN
                                 CAST(daily_calorie_goal AS REAL) /
@@ -119,7 +127,7 @@ def patch_sqlite_schema(app):
                         END,
                         2
                     )
-                    WHERE calorie_coefficient IS NULL
+                    WHERE goal_factor IS NULL
                     """
                 )
             )
