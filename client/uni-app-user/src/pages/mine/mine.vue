@@ -284,13 +284,13 @@ const goToAbout = () => {
 
 const fetchMetabolismInsight = async () => {
   try {
-    const res = await request({
+    const data = await request({
       url: BASE_URL + '/api/stats/metabolism-insight',
       method: 'GET',
       showError: false
     })
-    if (res.code === 200 && res.data) {
-      metabolismData.value = res.data
+    if (data) {
+      metabolismData.value = data
     }
   } catch (e) {
     // 静默失败
