@@ -57,7 +57,9 @@ def patch_sqlite_schema(app):
             # 兼容旧列名：重命名 calorie_coefficient → goal_factor
             if 'calorie_coefficient' in user_columns and 'goal_factor' not in user_columns:
                 connection.execute(text('ALTER TABLE users RENAME COLUMN calorie_coefficient TO goal_factor'))
-                user_columns = {column['name'] for column in inspector.get_columns('users')}
+                # 直接在内存中更新集合，避免 inspector 同一事务内缓存问题
+                user_columns.discard('calorie_coefficient')
+                user_columns.add('goal_factor')
             if 'goal_factor' not in user_columns:
                 connection.execute(text('ALTER TABLE users ADD COLUMN goal_factor NUMERIC(4, 2)'))
             if 'daily_ai_calls' not in user_columns:
@@ -102,7 +104,9 @@ def patch_sqlite_schema(app):
             # 兼容旧列名：重命名 calorie_coefficient → goal_factor
             if 'calorie_coefficient' in body_record_columns and 'goal_factor' not in body_record_columns:
                 connection.execute(text('ALTER TABLE body_records RENAME COLUMN calorie_coefficient TO goal_factor'))
-                body_record_columns = {column['name'] for column in inspector.get_columns('body_records')}
+                # 直接在内存中更新集合，避免 inspector 同一事务内缓存问题
+                body_record_columns.discard('calorie_coefficient')
+                body_record_columns.add('goal_factor')
             if 'goal_factor' not in body_record_columns:
                 connection.execute(text('ALTER TABLE body_records ADD COLUMN goal_factor NUMERIC(4, 2)'))
             if 'metabolic_coefficient' not in body_record_columns:
