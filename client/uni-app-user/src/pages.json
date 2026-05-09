@@ -72,6 +72,12 @@
       }
     },
     {
+      "path": "pages/mine/body-profile",
+      "style": {
+        "navigationBarTitleText": "身体档案"
+      }
+    },
+    {
       "path": "pages/login/login",
       "style": {
         "navigationBarTitleText": "登录",
