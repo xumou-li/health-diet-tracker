@@ -95,6 +95,8 @@ def patch_sqlite_schema(app):
             body_record_columns = {column['name'] for column in inspector.get_columns('body_records')}
             if 'calorie_coefficient' not in body_record_columns:
                 connection.execute(text('ALTER TABLE body_records ADD COLUMN calorie_coefficient NUMERIC(4, 2)'))
+            if 'metabolic_coefficient' not in body_record_columns:
+                connection.execute(text('ALTER TABLE body_records ADD COLUMN metabolic_coefficient NUMERIC(5, 3) DEFAULT 1.000'))
 
             connection.execute(
                 text(

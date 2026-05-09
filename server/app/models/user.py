@@ -114,6 +114,7 @@ class BodyRecord(db.Model):
     protein_ratio = db.Column(db.Numeric(3, 2), default=0.20, comment='蛋白质占比')
     fat_ratio = db.Column(db.Numeric(3, 2), default=0.25, comment='脂肪占比')
     carb_ratio = db.Column(db.Numeric(3, 2), default=0.55, comment='碳水占比')
+    metabolic_coefficient = db.Column(db.Numeric(5, 3), default=1.000, comment='个人代谢系数校准值')
     recorded_at = db.Column(db.DateTime, default=datetime.now, comment='快照时间')
     
     # 关系
@@ -136,5 +137,6 @@ class BodyRecord(db.Model):
             'protein_ratio': float(self.protein_ratio) if self.protein_ratio is not None else 0.20,
             'fat_ratio': float(self.fat_ratio) if self.fat_ratio is not None else 0.25,
             'carb_ratio': float(self.carb_ratio) if self.carb_ratio is not None else 0.55,
+            'metabolic_coefficient': float(self.metabolic_coefficient) if self.metabolic_coefficient else 1.0,
             'recorded_at': self.recorded_at.isoformat() if self.recorded_at else None
         }

@@ -455,3 +455,60 @@ def get_analysis():
         'suggestions': suggestions,
         'recommended_foods': recommended_foods
     })
+
+
+@stats_bp.route('/metabolism-insight', methods=['GET'])
+@login_required
+def get_metabolism_insight():
+    """个人代谢分析
+
+    返回基于身体快照和饮食记录反推的个人代谢系数，
+    以及与公式预测的对比。
+    """
+    user = g.current_user
+    from app.services.metabolism import MetabolismService
+
+    result = MetabolismService.calibrate_coefficient(user.id)
+
+    confidence_map = {
+        'high': '高（3组以上快照数据）',
+        'medium': '中（2组快照数据）',
+        'low': '低（仅1组数据或数据不足）',
+        'none': '暂无（需要≥2条身体快照且≥7天间隔）'
+    }
+
+    data = {
+        'coefficient': result['coefficient'],
+        'confidence': result['confidence'],
+        'confidence_desc': confidence_map.get(result['confidence'], ''),
+        'formula_tdee': result['formula_tdee'],
+        'actual_tdee': result['actual_tdee'],
+        'sample_pairs': result['sample_pairs'],
+        'latest_calibrated_at': result['latest_calibrated_at'],
+        'deviation_percent': round((result['coefficient'] - 1.0) * 100, 1),
+        'is_calibrated': result['coefficient'] != 1.0 and result['sample_pairs'] > 0
+    }
+
+    # 获取最新 body_record 中存储的系数
+    latest_body = BodyRecord.query.filter_by(user_id=user.id).order_by(
+        BodyRecord.recorded_at.desc()
+    ).first()
+    if latest_body and latest_body.metabolic_coefficient:
+        data['stored_coefficient'] = float(latest_body.metabolic_coefficient)
+
+    # 公式预测消耗
+    activity_factor = NutritionService.ACTIVITY_FACTORS.get(
+        user.activity_level, 1.2
+    )
+    data['current_formula_tdee'] = int(user.bmr * activity_factor)
+
+    # 校准后推荐热量
+    if data['is_calibrated']:
+        coef = data.get('stored_coefficient', data['coefficient'])
+        calibrated_tdee = int(user.bmr * activity_factor * coef)
+        calibrated_goal = int(calibrated_tdee * float(user.calorie_coefficient))
+        data['calibrated_tdee'] = calibrated_tdee
+        data['calibrated_daily_goal'] = calibrated_goal
+        data['original_daily_goal'] = user.daily_calorie_goal
+
+    return success(data)

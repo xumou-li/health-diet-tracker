@@ -172,7 +172,14 @@ def update_profile():
             db.session.add(body_record)
         
         db.session.commit()
-        
+
+        # 异步校准个人代谢系数（不影响主流程）
+        try:
+            from app.services.metabolism import MetabolismService
+            MetabolismService.apply_calibration(user)
+        except Exception:
+            pass  # 校准失败不影响档案更新
+
         return success(user.to_dict(), '更新成功')
         
     except Exception as e:
@@ -231,7 +238,14 @@ def update_health_goal():
         db.session.add(body_record)
 
         db.session.commit()
-        
+
+        # 校准个人代谢系数
+        try:
+            from app.services.metabolism import MetabolismService
+            MetabolismService.apply_calibration(user)
+        except Exception:
+            pass
+
         return success({
             'health_goal': health_goal,
             'calorie_coefficient': float(user.calorie_coefficient),

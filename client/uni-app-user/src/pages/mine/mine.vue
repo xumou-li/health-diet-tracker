@@ -102,6 +102,55 @@
           </view>
         </view>
 
+        <!-- 个人代谢分析卡片 -->
+        <view class="metabolism-card" v-if="metabolismData?.is_calibrated">
+          <view class="card-title">
+            <text>🔬 个人代谢分析</text>
+            <text class="confidence-badge" :class="'conf-' + metabolismData.confidence">
+              {{ metabolismData.confidence_desc }}
+            </text>
+          </view>
+
+          <view class="metabolism-main">
+            <view class="coeff-ring">
+              <text class="coeff-number">{{ metabolismData.coefficient?.toFixed(3) }}</text>
+              <text class="coeff-label">代谢系数</text>
+              <text class="coeff-hint" v-if="metabolismData.deviation_percent > 0">
+                比公式高 {{ metabolismData.deviation_percent }}%
+              </text>
+              <text class="coeff-hint lower" v-else-if="metabolismData.deviation_percent < 0">
+                比公式低 {{ Math.abs(metabolismData.deviation_percent) }}%
+              </text>
+            </view>
+
+            <view class="metabolism-compare">
+              <view class="compare-item formula">
+                <text class="compare-label">公式预测消耗</text>
+                <text class="compare-value">{{ metabolismData.current_formula_tdee }} kcal/天</text>
+              </view>
+              <view class="compare-arrow">→</view>
+              <view class="compare-item actual">
+                <text class="compare-label">实际推算消耗</text>
+                <text class="compare-value">{{ metabolismData.actual_tdee }} kcal/天</text>
+              </view>
+            </view>
+          </view>
+
+          <view class="metabolism-calibrated" v-if="metabolismData.calibrated_daily_goal">
+            <text class="calibrated-label">校准后每日目标热量</text>
+            <text class="calibrated-value">{{ metabolismData.calibrated_daily_goal }} kcal</text>
+            <text class="calibrated-note" v-if="metabolismData.original_daily_goal !== metabolismData.calibrated_daily_goal">
+              （原目标 {{ metabolismData.original_daily_goal }} kcal）
+            </text>
+          </view>
+
+          <view class="metabolism-footer">
+            <text class="footer-text">
+              基于 {{ metabolismData.sample_pairs }} 组身体快照数据 · 最近校准 {{ metabolismData.latest_calibrated_at?.slice(0, 10) }}
+            </text>
+          </view>
+        </view>
+
         <!-- 功能菜单 -->
         <view class="menu-section">
           <view class="menu-item" @click="goToEditProfile">
@@ -151,13 +200,14 @@
 import { ref, computed, onMounted, watch } from 'vue'
 import { onShow } from '@dcloudio/uni-app'
 import { useUserStore } from '@/store/user'
-import { BASE_URL } from '@/api/request'
+import { BASE_URL, request } from '@/api/request'
 import {
   getBMIStatus
 } from '@/utils/nutrition'
 
 const userStore = useUserStore()
 const hasUserSession = ref(false)
+const metabolismData = ref(null)
 
 const profile = computed(() => userStore.profile)
 const isLoggedIn = computed(() => hasUserSession.value)
@@ -232,6 +282,21 @@ const goToAbout = () => {
   uni.showToast({ title: '功能开发中', icon: 'none' })
 }
 
+const fetchMetabolismInsight = async () => {
+  try {
+    const res = await request({
+      url: BASE_URL + '/api/stats/metabolism-insight',
+      method: 'GET',
+      showError: false
+    })
+    if (res.code === 200 && res.data) {
+      metabolismData.value = res.data
+    }
+  } catch (e) {
+    // 静默失败
+  }
+}
+
 const handleLogout = () => {
   uni.showModal({
     title: '确认退出',
@@ -272,6 +337,7 @@ watch(
 onMounted(async () => {
   try {
     await syncUserState()
+    fetchMetabolismInsight()
   } catch (e) {
     // 静默失败，未登录或网络错误
   }
@@ -280,6 +346,7 @@ onMounted(async () => {
 // H5 keep-alive 场景：切回 tab 时同步
 onShow(() => {
   syncUserState().catch(() => {})
+  fetchMetabolismInsight()
 })
 </script>
 
@@ -556,6 +623,150 @@ onShow(() => {
         padding: 8rpx 16rpx;
         border-radius: 8rpx;
       }
+    }
+  }
+}
+
+.metabolism-card {
+  margin: 0 30rpx 20rpx;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  color: #fff;
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+
+    .confidence-badge {
+      font-size: 20rpx;
+      padding: 4rpx 16rpx;
+      border-radius: 20rpx;
+      font-weight: normal;
+
+      &.conf-high {
+        background: rgba(76, 175, 80, 0.3);
+        color: #a5d6a7;
+      }
+      &.conf-medium {
+        background: rgba(255, 152, 0, 0.3);
+        color: #ffcc80;
+      }
+      &.conf-low {
+        background: rgba(244, 67, 54, 0.3);
+        color: #ef9a9a;
+      }
+    }
+  }
+
+  .metabolism-main {
+    display: flex;
+    align-items: center;
+    gap: 30rpx;
+    margin-bottom: 24rpx;
+
+    .coeff-ring {
+      min-width: 160rpx;
+      text-align: center;
+      padding: 24rpx 20rpx;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16rpx;
+      border: 2rpx solid rgba(255, 255, 255, 0.15);
+
+      .coeff-number {
+        display: block;
+        font-size: 44rpx;
+        font-weight: bold;
+        color: #4fc3f7;
+        line-height: 1.2;
+      }
+      .coeff-label {
+        display: block;
+        font-size: 22rpx;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 4rpx;
+      }
+      .coeff-hint {
+        display: block;
+        font-size: 20rpx;
+        color: #ef9a9a;
+        margin-top: 8rpx;
+
+        &.lower {
+          color: #a5d6a7;
+        }
+      }
+    }
+
+    .metabolism-compare {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 12rpx;
+
+      .compare-item {
+        flex: 1;
+        text-align: center;
+
+        .compare-label {
+          display: block;
+          font-size: 20rpx;
+          color: rgba(255, 255, 255, 0.5);
+          margin-bottom: 6rpx;
+        }
+        .compare-value {
+          display: block;
+          font-size: 24rpx;
+          font-weight: bold;
+        }
+        &.formula .compare-value { color: rgba(255, 255, 255, 0.7); }
+        &.actual .compare-value { color: #4fc3f7; }
+      }
+
+      .compare-arrow {
+        font-size: 24rpx;
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  .metabolism-calibrated {
+    text-align: center;
+    padding: 20rpx;
+    background: rgba(76, 175, 80, 0.15);
+    border-radius: 12rpx;
+    margin-bottom: 16rpx;
+
+    .calibrated-label {
+      display: block;
+      font-size: 22rpx;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 4rpx;
+    }
+    .calibrated-value {
+      display: block;
+      font-size: 32rpx;
+      font-weight: bold;
+      color: #a5d6a7;
+    }
+    .calibrated-note {
+      display: block;
+      font-size: 20rpx;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 4rpx;
+    }
+  }
+
+  .metabolism-footer {
+    text-align: center;
+
+    .footer-text {
+      font-size: 20rpx;
+      color: rgba(255, 255, 255, 0.35);
     }
   }
 }
