@@ -329,7 +329,7 @@ onShow(() => {
 }
 
 .menu-section {
-  margin: 0 30rpx;
+  margin: 20rpx 30rpx 0;
   background: #fff;
   border-radius: 20rpx;
   overflow: hidden;
