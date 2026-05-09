@@ -43,6 +43,7 @@ class User(db.Model):
     fat_ratio = db.Column(db.Numeric(3, 2), default=0.25, comment='脂肪占比(默认0.25)')
     carb_ratio = db.Column(db.Numeric(3, 2), default=0.55, comment='碳水占比(默认0.55)')
     bmi = db.Column(db.Numeric(4, 2), nullable=False, comment='BMI值')
+    metabolic_coefficient = db.Column(db.Numeric(5, 3), default=1.000, comment='个人代谢系数（系统校准）')
     wechat_openid = db.Column(db.String(100), comment='微信OpenID')
     last_weight_update = db.Column(db.Date, comment='最近体重更新日期')
     is_frozen = db.Column(db.Boolean, default=False, comment='是否冻结')
@@ -91,6 +92,7 @@ class User(db.Model):
             'fat_ratio': float(self.fat_ratio) if self.fat_ratio is not None else default_ratios['fat'],
             'carb_ratio': float(self.carb_ratio) if self.carb_ratio is not None else default_ratios['carb'],
             'bmi': float(self.bmi) if self.bmi else None,
+            'metabolic_coefficient': float(self.metabolic_coefficient) if self.metabolic_coefficient else 1.0,
             'last_weight_update': self.last_weight_update.isoformat() if self.last_weight_update else None,
             'created_at': self.created_at.isoformat() if self.created_at else None
         }

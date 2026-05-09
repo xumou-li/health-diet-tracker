@@ -153,6 +153,12 @@ def update_profile():
             user.daily_calorie_goal = metrics['daily_calorie_goal']
             user.calorie_coefficient = metrics['calorie_coefficient']
             user.last_weight_update = date.today()
+
+            # 应用个人代谢校准（如果已有）
+            if user.metabolic_coefficient and float(user.metabolic_coefficient) != 1.0:
+                user.daily_calorie_goal = int(
+                    user.daily_calorie_goal * float(user.metabolic_coefficient)
+                )
             
             # 创建新的身体记录快照
             body_record = BodyRecord()
@@ -214,6 +220,12 @@ def update_health_goal():
             user.calorie_coefficient
         )
         user.daily_calorie_goal = daily_calorie
+
+        # 应用个人代谢校准（如果已有）
+        if user.metabolic_coefficient and float(user.metabolic_coefficient) != 1.0:
+            user.daily_calorie_goal = int(
+                user.daily_calorie_goal * float(user.metabolic_coefficient)
+            )
         
         # 根据新的健康目标更新默认营养素比例（如果用户没有自定义过）
         default_ratios = NutritionService.get_default_nutrient_ratios(health_goal)

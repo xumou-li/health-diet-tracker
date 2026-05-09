@@ -166,21 +166,32 @@ class MetabolismService:
         """将校准系数应用到用户的热量目标
 
         在 user 更新档案时调用。
-        校准后的 daily_calorie_goal 写入 BodyRecord 的 calorie_coefficient 字段。
+        更新 body_record.metabolic_coefficient 和 user.daily_calorie_goal。
         """
         result = cls.calibrate_coefficient(user.id)
         coefficient = result['coefficient']
 
-        # 只有高/中置信度才自动应用
+        # 只有高/中置信度且偏差 >2% 才自动应用
         if result['confidence'] in ('high', 'medium') and abs(coefficient - 1.0) > 0.02:
-            # 更新最新 BodyRecord 的代谢系数
+            # 更新用户缓存
+            user.metabolic_coefficient = coefficient
+
+            # 重算并更新每日热量目标
+            activity_factor = NutritionService.ACTIVITY_FACTORS.get(
+                user.activity_level, 1.2
+            )
+            calibrated_tdee = int(user.bmr * activity_factor * coefficient)
+            user.daily_calorie_goal = int(calibrated_tdee * float(user.calorie_coefficient))
+
+            # 更新最新 BodyRecord
             latest = BodyRecord.query.filter_by(
                 user_id=user.id
             ).order_by(BodyRecord.recorded_at.desc()).first()
-
             if latest:
                 latest.metabolic_coefficient = coefficient
-                db.session.commit()
+                latest.daily_calorie_goal = user.daily_calorie_goal
+
+            db.session.commit()
 
         return result
 

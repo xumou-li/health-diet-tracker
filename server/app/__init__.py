@@ -64,6 +64,8 @@ def patch_sqlite_schema(app):
                 connection.execute(text('ALTER TABLE users ADD COLUMN nickname VARCHAR(50)'))
             if 'avatar' not in user_columns:
                 connection.execute(text('ALTER TABLE users ADD COLUMN avatar VARCHAR(255)'))
+            if 'metabolic_coefficient' not in user_columns:
+                connection.execute(text('ALTER TABLE users ADD COLUMN metabolic_coefficient NUMERIC(5, 3) DEFAULT 1.000'))
 
             connection.execute(
                 text(
