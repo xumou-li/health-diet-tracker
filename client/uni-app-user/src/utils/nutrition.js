@@ -116,19 +116,6 @@ export const calculateDailyCalorie = (bmr, activityLevel, healthGoal, calorieCoe
 }
 
 /**
- * 计算推荐营养素摄入量
- * @param {number} dailyCalorie - 每日推荐热量
- * @returns {object} { protein, carb, fat } 单位：克
- */
-export const calculateNutrientGoals = (dailyCalorie) => {
-  return {
-    protein: Math.round(dailyCalorie * 0.20 / 4),  // 20%热量来自蛋白质，1g蛋白=4kcal
-    carb: Math.round(dailyCalorie * 0.55 / 4),     // 55%热量来自碳水，1g碳水=4kcal
-    fat: Math.round(dailyCalorie * 0.25 / 9)       // 25%热量来自脂肪，1g脂肪=9kcal
-  }
-}
-
-/**
  * 计算食物实际营养摄入
  * @param {object} food - 食物信息（每100g营养）
  * @param {number} weightG - 实际摄入重量(g)
@@ -210,7 +197,6 @@ export default {
   calculateBMR,
   calculateAgeFromBirthday,
   calculateDailyCalorie,
-  calculateNutrientGoals,
   calculateNutrientIntake,
   calculateDietScore,
   getIntakeStatus,
