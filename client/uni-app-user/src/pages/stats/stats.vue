@@ -41,7 +41,7 @@
           </view>
           <view class="compare-item">
             <text class="label">目标</text>
-            <text class="value">{{ analysis.summary?.target?.calorie || 0 }}</text>
+            <text class="value">{{ calibratedDailyGoal || 0 }}</text>
             <text class="unit">kcal</text>
           </view>
         </view>
@@ -256,12 +256,32 @@
 import { ref, computed, onMounted } from 'vue'
 import { onShow } from '@dcloudio/uni-app'
 import { getWeekStats, getMonthStats, getTodayStats, getAnalysis } from '@/api/stats'
+import { useUserStore } from '@/store/user'
+import { calculateBMR, calculateAgeFromBirthday, calculateDailyCalorie } from '@/utils/nutrition'
 import dayjs from 'dayjs'
 
 const currentPeriod = ref('analysis')
 const stats = ref(null)
 const analysis = ref(null)
 const loading = ref(false)
+
+const userStore = useUserStore()
+const profile = computed(() => userStore.profile)
+
+const formulaDailyGoal = computed(() => {
+  if (!profile.value) return 0
+  const age = calculateAgeFromBirthday(profile.value.birthday)
+  if (!age) return 0
+  const bmr = calculateBMR(profile.value.weight_kg, profile.value.height_cm, age, profile.value.gender)
+  return calculateDailyCalorie(bmr, profile.value.activity_level, profile.value.health_goal, profile.value.calorie_coefficient)
+})
+
+const calibratedDailyGoal = computed(() => {
+  if (!formulaDailyGoal.value) return 0
+  const mc = profile.value?.metabolic_coefficient
+  if (!mc || mc === 1) return formulaDailyGoal.value
+  return Math.round(formulaDailyGoal.value * mc)
+})
 
 const periodTabs = [
   { key: 'week', name: '最近7天' },
@@ -317,7 +337,7 @@ const targetNutrients = computed(() => {
 const caloriePercent = computed(() => {
   if (!analysis.value?.summary) return 0
   const actual = analysis.value.summary.actual?.calorie || 0
-  const target = analysis.value.summary.target?.calorie || 1
+  const target = calibratedDailyGoal.value || analysis.value.summary.target?.calorie || 1
   return Math.round((actual / target) * 100)
 })
 

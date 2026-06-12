@@ -1,6 +1,11 @@
 <template>
   <view class="profile-edit-container">
+    <!-- #ifdef H5 -->
+    <view class="edit-scroll">
+    <!-- #endif -->
+    <!-- #ifndef H5 -->
     <scroll-view class="edit-scroll" scroll-y>
+    <!-- #endif -->
       <view class="form-section">
         <view class="form-item">
           <text class="label">身高(cm)</text>
@@ -40,18 +45,13 @@
           <text class="label">每日热量预估</text>
           <view class="calorie-preview-card">
             <view class="preview-main">
-              <text class="preview-value">{{ dailyCaloriePreviewText }}</text>
+              <text class="preview-value">{{ displayCalorieText }}</text>
               <text class="preview-unit">kcal/天</text>
             </view>
             <text class="preview-detail">{{ dailyCaloriePreviewDetail }}</text>
             <!-- 代谢校准提示 -->
             <view class="calibration-note" v-if="hasMetabolicCalibration">
-              <view class="calibration-divider">基于历史数据校准</view>
-              <view class="calibration-value">
-                <text class="calibration-num">{{ calibratedDailyCalorieText }}</text>
-                <text class="calibration-unit">kcal/天</text>
-              </view>
-              <text class="calibration-desc">代谢校准系数 {{ (profile?.metabolic_coefficient || 1).toFixed(3) }}，已根据您的实际体重变化与饮食记录反推真实代谢水平。</text>
+              <text class="calibration-desc">已根据您的历史体重变化与饮食记录反推真实代谢水平（代谢系数 {{ (profile?.metabolic_coefficient || 1).toFixed(3) }}）。公式预测值 {{ dailyCaloriePreviewText }} kcal/天。</text>
             </view>
           </view>
         </view>
@@ -123,7 +123,12 @@
           </view>
         </view>
       </view>
+    <!-- #ifdef H5 -->
+    </view>
+    <!-- #endif -->
+    <!-- #ifndef H5 -->
     </scroll-view>
+    <!-- #endif -->
 
     <!-- 底部按钮 -->
     <view class="bottom-bar">
@@ -255,6 +260,13 @@ const calibratedDailyCalorieText = computed(() => {
   if (!dailyCaloriePreview.value) return '--'
   const mc = profile.value?.metabolic_coefficient || 1
   return Math.round(dailyCaloriePreview.value.calorie * mc)
+})
+
+const displayCalorieText = computed(() => {
+  if (hasMetabolicCalibration.value && calibratedDailyCalorieText.value !== '--') {
+    return calibratedDailyCalorieText.value
+  }
+  return dailyCaloriePreviewText.value
 })
 
 const ratioTotal = computed(() => {
@@ -399,16 +411,17 @@ onMounted(() => {
 .profile-edit-container {
   height: 100vh;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
   background: #f5f5f5;
 }
 
 .edit-scroll {
-  flex: 1;
-  height: 0;
-  padding: 20rpx 30rpx 40rpx;
+  height: 100%;
+  padding: 20rpx 30rpx 160rpx;
   box-sizing: border-box;
+  /* #ifdef H5 */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* #endif */
 }
 
 .form-section {
@@ -509,32 +522,11 @@ onMounted(() => {
     padding-top: 20rpx;
     border-top: 2rpx dashed rgba(76, 175, 80, 0.3);
 
-    .calibration-divider {
-      font-size: 20rpx;
-      color: #999;
-      margin-bottom: 8rpx;
-    }
-
-    .calibration-value {
-      .calibration-num {
-        font-size: 36rpx;
-        font-weight: bold;
-        color: #1b5e20;
-      }
-
-      .calibration-unit {
-        font-size: 20rpx;
-        color: #4caf50;
-        margin-left: 4rpx;
-      }
-    }
-
     .calibration-desc {
       display: block;
       font-size: 20rpx;
       color: #888;
       line-height: 1.4;
-      margin-top: 6rpx;
     }
   }
 }
@@ -602,7 +594,10 @@ onMounted(() => {
 }
 
 .bottom-bar {
-  flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   gap: 20rpx;
   padding: 20rpx 30rpx;
@@ -610,6 +605,7 @@ onMounted(() => {
   background: #fff;
   border-top: 1rpx solid #f0f0f0;
   box-sizing: border-box;
+  z-index: 100;
 
   button {
     flex: 1;

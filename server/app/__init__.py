@@ -10,10 +10,10 @@ def create_app(config_name=None):
     """应用工厂函数"""
     if config_name is None:
         config_name = os.getenv('FLASK_ENV', 'development')
-    
+
     app = Flask(__name__)
     app.config.from_object(config[config_name])
-    
+
     # 初始化扩展
     db.init_app(app)
     jwt.init_app(app)
@@ -26,10 +26,9 @@ def create_app(config_name=None):
         }
     })
 
-    
     # 注册蓝图
     register_blueprints(app)
-    
+
     # 创建数据库表
     with app.app_context():
         db.create_all()
@@ -71,7 +70,8 @@ def patch_sqlite_schema(app):
             if 'avatar' not in user_columns:
                 connection.execute(text('ALTER TABLE users ADD COLUMN avatar VARCHAR(255)'))
             if 'metabolic_coefficient' not in user_columns:
-                connection.execute(text('ALTER TABLE users ADD COLUMN metabolic_coefficient NUMERIC(5, 3) DEFAULT 1.000'))
+                connection.execute(
+                    text('ALTER TABLE users ADD COLUMN metabolic_coefficient NUMERIC(5, 3) DEFAULT 1.000'))
 
             connection.execute(
                 text(
@@ -110,7 +110,8 @@ def patch_sqlite_schema(app):
             if 'goal_factor' not in body_record_columns:
                 connection.execute(text('ALTER TABLE body_records ADD COLUMN goal_factor NUMERIC(4, 2)'))
             if 'metabolic_coefficient' not in body_record_columns:
-                connection.execute(text('ALTER TABLE body_records ADD COLUMN metabolic_coefficient NUMERIC(5, 3) DEFAULT 1.000'))
+                connection.execute(
+                    text('ALTER TABLE body_records ADD COLUMN metabolic_coefficient NUMERIC(5, 3) DEFAULT 1.000'))
 
             connection.execute(
                 text(
@@ -170,8 +171,10 @@ def patch_sqlite_schema(app):
                     FROM meal_records_old
                 '''))
                 connection.execute(text('DROP TABLE meal_records_old'))
-                connection.execute(text('CREATE INDEX IF NOT EXISTS idx_meals_user_date ON meal_records (user_id, date)'))
-                connection.execute(text('CREATE INDEX IF NOT EXISTS idx_meals_body_record ON meal_records (body_record_id)'))
+                connection.execute(
+                    text('CREATE INDEX IF NOT EXISTS idx_meals_user_date ON meal_records (user_id, date)'))
+                connection.execute(
+                    text('CREATE INDEX IF NOT EXISTS idx_meals_body_record ON meal_records (body_record_id)'))
 
         if 'system_configs' in inspector.get_table_names():
             connection.execute(
@@ -201,7 +204,7 @@ def register_blueprints(app):
     from .api.stats import stats_bp
     from .api.ai import ai_bp
     from .api.admin import admin_bp
-    
+
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
     app.register_blueprint(user_bp, url_prefix='/api/user')
     app.register_blueprint(food_bp, url_prefix='/api')

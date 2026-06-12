@@ -30,7 +30,7 @@
           </view>
           <view class="calorie-goal">
             <text class="goal-label">每日目标热量</text>
-            <text class="goal-value">{{ profile?.daily_calorie_goal || '--' }} kcal</text>
+            <text class="goal-value">{{ calibratedDailyGoal }} kcal</text>
           </view>
 
           <view class="profile-meta-row">
@@ -85,43 +85,22 @@
         <!-- 个人代谢分析卡片 -->
         <view class="metabolism-card" v-if="metabolismData?.is_calibrated">
           <view class="card-title">
-            <text>🔬 个人代谢分析</text>
-            <text class="confidence-badge" :class="'conf-' + metabolismData.confidence">
-              {{ metabolismData.confidence_desc }}
-            </text>
+            <text>个人代谢分析</text>
+            <text class="coeff-badge">代谢系数 {{ metabolismData.coefficient?.toFixed(3) }}</text>
           </view>
 
-          <view class="metabolism-main">
-            <view class="coeff-ring">
-              <text class="coeff-number">{{ metabolismData.coefficient?.toFixed(3) }}</text>
-              <text class="coeff-label">代谢系数</text>
-              <text class="coeff-hint" v-if="metabolismData.deviation_percent > 0">
-                比公式高 {{ metabolismData.deviation_percent }}%
-              </text>
-              <text class="coeff-hint lower" v-else-if="metabolismData.deviation_percent < 0">
-                比公式低 {{ Math.abs(metabolismData.deviation_percent) }}%
-              </text>
+          <view class="metabolism-compare">
+            <view class="compare-item formula">
+              <text class="compare-label">修正前每日推荐</text>
+              <text class="compare-value">{{ formulaDailyGoal }} kcal/天</text>
+              <text class="compare-desc">基于通用公式</text>
             </view>
-
-            <view class="metabolism-compare">
-              <view class="compare-item formula">
-                <text class="compare-label">公式预测消耗</text>
-                <text class="compare-value">{{ metabolismData.current_formula_tdee }} kcal/天</text>
-              </view>
-              <view class="compare-arrow">→</view>
-              <view class="compare-item actual">
-                <text class="compare-label">实际推算消耗</text>
-                <text class="compare-value">{{ metabolismData.actual_tdee }} kcal/天</text>
-              </view>
+            <text class="compare-arrow">→</text>
+            <view class="compare-item actual">
+              <text class="compare-label">修正后每日推荐</text>
+              <text class="compare-value">{{ calibratedDailyGoal }} kcal/天</text>
+              <text class="compare-desc">结合您的实际代谢</text>
             </view>
-          </view>
-
-          <view class="metabolism-calibrated" v-if="metabolismData.calibrated_daily_goal">
-            <text class="calibrated-label">校准后每日目标热量</text>
-            <text class="calibrated-value">{{ metabolismData.calibrated_daily_goal }} kcal</text>
-            <text class="calibrated-note" v-if="metabolismData.original_daily_goal !== metabolismData.calibrated_daily_goal">
-              （原目标 {{ metabolismData.original_daily_goal }} kcal）
-            </text>
           </view>
 
           <view class="metabolism-footer">
@@ -133,7 +112,7 @@
 
         <!-- 未校准时的提示 -->
         <view class="no-calibration" v-else-if="profile">
-          <text class="no-cal-text">🔬 代谢分析</text>
+          <text class="no-cal-text">代谢分析</text>
           <text class="no-cal-hint">记录多天体重数据后，系统将自动分析您的个人代谢系数</text>
         </view>
 
@@ -152,7 +131,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { useUserStore } from '@/store/user'
 import { BASE_URL, request } from '@/api/request'
-import { getBMIStatus } from '@/utils/nutrition'
+import { getBMIStatus, calculateBMR, calculateAgeFromBirthday, calculateDailyCalorie } from '@/utils/nutrition'
 
 const userStore = useUserStore()
 const metabolismData = ref(null)
@@ -171,6 +150,21 @@ const bmiColor = computed(() => {
 const healthGoalText = computed(() => {
   const goals = { 1: '维持体重', 2: '减脂中', 3: '增肌中' }
   return goals[profile.value?.health_goal] || '--'
+})
+
+const formulaDailyGoal = computed(() => {
+  if (!profile.value) return '--'
+  const age = calculateAgeFromBirthday(profile.value.birthday)
+  if (!age) return '--'
+  const bmr = calculateBMR(profile.value.weight_kg, profile.value.height_cm, age, profile.value.gender)
+  return calculateDailyCalorie(bmr, profile.value.activity_level, profile.value.health_goal, profile.value.calorie_coefficient)
+})
+
+const calibratedDailyGoal = computed(() => {
+  if (!formulaDailyGoal.value || formulaDailyGoal.value === '--') return '--'
+  const mc = profile.value?.metabolic_coefficient
+  if (!mc || mc === 1) return formulaDailyGoal.value
+  return Math.round(formulaDailyGoal.value * mc)
 })
 
 const fetchMetabolismInsight = async () => {
@@ -416,113 +410,60 @@ onMounted(async () => {
     font-weight: bold;
     color: #333;
 
-    .confidence-badge {
+    .coeff-badge {
       font-size: 20rpx;
       padding: 4rpx 16rpx;
       border-radius: 20rpx;
       font-weight: normal;
       color: #fff;
-
-      &.conf-high { background: #66bb6a; }
-      &.conf-medium { background: #ffa726; }
-      &.conf-low { background: #ef5350; }
+      background: #66bb6a;
     }
   }
 
-  .metabolism-main {
+  .metabolism-compare {
     display: flex;
     align-items: center;
-    gap: 30rpx;
-    margin-bottom: 24rpx;
+    gap: 16rpx;
+    margin-bottom: 20rpx;
 
-    .coeff-ring {
-      min-width: 160rpx;
+    .compare-item {
+      flex: 1;
       text-align: center;
-      padding: 24rpx 20rpx;
-      background: #e8f5e9;
-      border-radius: 16rpx;
+      padding: 24rpx 16rpx;
+      border-radius: 12rpx;
 
-      .coeff-number {
-        display: block;
-        font-size: 44rpx;
-        font-weight: bold;
-        color: #43a047;
-        line-height: 1.2;
+      &.formula {
+        background: #f5f5f5;
       }
-      .coeff-label {
+      &.actual {
+        background: #e8f5e9;
+      }
+
+      .compare-label {
         display: block;
         font-size: 22rpx;
         color: #999;
-        margin-top: 4rpx;
+        margin-bottom: 8rpx;
       }
-      .coeff-hint {
+      .compare-value {
         display: block;
-        font-size: 20rpx;
-        color: #ef5350;
-        margin-top: 8rpx;
-
-        &.lower {
-          color: #66bb6a;
-        }
+        font-size: 30rpx;
+        font-weight: bold;
+      }
+      &.formula .compare-value { color: #666; }
+      &.actual .compare-value { color: #2e7d32; }
+      .compare-desc {
+        display: block;
+        font-size: 18rpx;
+        color: #bbb;
+        margin-top: 6rpx;
       }
     }
 
-    .metabolism-compare {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 12rpx;
-
-      .compare-item {
-        flex: 1;
-        text-align: center;
-
-        .compare-label {
-          display: block;
-          font-size: 20rpx;
-          color: #999;
-          margin-bottom: 6rpx;
-        }
-        .compare-value {
-          display: block;
-          font-size: 24rpx;
-          font-weight: bold;
-        }
-        &.formula .compare-value { color: #999; }
-        &.actual .compare-value { color: #43a047; }
-      }
-
-      .compare-arrow {
-        font-size: 24rpx;
-        color: #ccc;
-      }
-    }
-  }
-
-  .metabolism-calibrated {
-    text-align: center;
-    padding: 20rpx;
-    background: #e8f5e9;
-    border-radius: 12rpx;
-    margin-bottom: 16rpx;
-
-    .calibrated-label {
-      display: block;
-      font-size: 22rpx;
-      color: #999;
-      margin-bottom: 4rpx;
-    }
-    .calibrated-value {
-      display: block;
-      font-size: 32rpx;
-      font-weight: bold;
-      color: #4caf50;
-    }
-    .calibrated-note {
-      display: block;
-      font-size: 20rpx;
-      color: #999;
-      margin-top: 4rpx;
+    .compare-arrow {
+      font-size: 28rpx;
+      color: #ccc;
+      flex-shrink: 0;
     }
   }
 

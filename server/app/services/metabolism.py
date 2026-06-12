@@ -180,8 +180,8 @@ class MetabolismService:
             activity_factor = NutritionService.ACTIVITY_FACTORS.get(
                 user.activity_level, 1.2
             )
-            calibrated_tdee = int(user.bmr * activity_factor * coefficient)
-            user.daily_calorie_goal = int(calibrated_tdee * float(user.goal_factor))
+            calibrated_tdee = round(user.bmr * activity_factor * coefficient)
+            user.daily_calorie_goal = round(calibrated_tdee * float(user.goal_factor))
 
             # 更新最新 BodyRecord
             latest = BodyRecord.query.filter_by(
@@ -213,7 +213,7 @@ class MetabolismService:
         activity_factor = NutritionService.ACTIVITY_FACTORS.get(
             body_record.activity_level, 1.2
         )
-        return int(body_record.bmr * activity_factor)
+        return round(body_record.bmr * activity_factor)
 
     @classmethod
     def _empty_result(cls, confidence, reason):

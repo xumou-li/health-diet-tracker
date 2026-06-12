@@ -156,7 +156,7 @@ def update_profile():
 
             # 应用个人代谢校准（如果已有）
             if user.metabolic_coefficient and float(user.metabolic_coefficient) != 1.0:
-                user.daily_calorie_goal = int(
+                user.daily_calorie_goal = round(
                     user.daily_calorie_goal * float(user.metabolic_coefficient)
                 )
             
@@ -223,7 +223,7 @@ def update_health_goal():
 
         # 应用个人代谢校准（如果已有）
         if user.metabolic_coefficient and float(user.metabolic_coefficient) != 1.0:
-            user.daily_calorie_goal = int(
+            user.daily_calorie_goal = round(
                 user.daily_calorie_goal * float(user.metabolic_coefficient)
             )
         

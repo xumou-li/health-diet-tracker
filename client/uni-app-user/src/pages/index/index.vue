@@ -1,6 +1,11 @@
 <template>
   <view class="index-container">
+    <!-- #ifdef H5 -->
+    <view class="index-scroll">
+    <!-- #endif -->
+    <!-- #ifndef H5 -->
     <scroll-view scroll-y class="index-scroll">
+    <!-- #endif -->
       <view class="scroll-inner">
     <!-- 顶部用户信息（可滚动） -->
     <view class="header">
@@ -36,12 +41,12 @@
         <view class="calorie-info">
           <view class="info-item">
             <text class="label">目标</text>
-            <text class="value">{{ displayMetric(todayStats.target?.calorie) }} kcal</text>
+            <text class="value">{{ displayMetric(calorieTarget) }} kcal</text>
           </view>
           <view class="info-item">
             <text class="label">剩余</text>
             <text class="value" :class="{ warning: calorieRemaining < 0 }">
-              {{ displayMetric(todayStats.remaining?.calorie) }} kcal
+              {{ displayMetric(calorieRemaining) }} kcal
             </text>
           </view>
           <view class="info-item">
@@ -132,7 +137,12 @@
     </view>
 
       </view>
+    <!-- #ifdef H5 -->
+    </view>
+    <!-- #endif -->
+    <!-- #ifndef H5 -->
     </scroll-view>
+    <!-- #endif -->
 
     <!-- 公告弹窗 -->
     <view class="announcement-overlay" v-if="showAnnouncementModal" @click.stop>
@@ -166,6 +176,7 @@ import { getTodayStats } from '@/api/stats'
 import { getMealsByDate } from '@/api/meal'
 import { getAnnouncement } from '@/api/announcement'
 import { BASE_URL } from '@/api/request'
+import { calculateBMR, calculateAgeFromBirthday, calculateDailyCalorie } from '@/utils/nutrition'
 import dayjs from 'dayjs'
 
 const userStore = useUserStore()
@@ -246,8 +257,24 @@ const displayMetric = (value, fallback = '--') => {
 }
 
 const calorieActual = computed(() => toNumber(todayStats.value.actual?.calorie))
-const calorieTarget = computed(() => toNumber(todayStats.value.target?.calorie))
-const calorieRemaining = computed(() => toNumber(todayStats.value.remaining?.calorie))
+
+const formulaDailyGoal = computed(() => {
+  if (!profile.value) return 0
+  const age = calculateAgeFromBirthday(profile.value.birthday)
+  if (!age) return 0
+  const bmr = calculateBMR(profile.value.weight_kg, profile.value.height_cm, age, profile.value.gender)
+  return calculateDailyCalorie(bmr, profile.value.activity_level, profile.value.health_goal, profile.value.calorie_coefficient)
+})
+
+const calibratedDailyGoal = computed(() => {
+  if (!formulaDailyGoal.value) return 0
+  const mc = profile.value?.metabolic_coefficient
+  if (!mc || mc === 1) return formulaDailyGoal.value
+  return Math.round(formulaDailyGoal.value * mc)
+})
+
+const calorieTarget = computed(() => calibratedDailyGoal.value || toNumber(todayStats.value.target?.calorie))
+const calorieRemaining = computed(() => Math.max(0, calorieTarget.value - calorieActual.value))
 
 const calorieProgressRatio = computed(() => {
   if (!calorieTarget.value) return 0
@@ -528,12 +555,22 @@ onUnload(() => {
 .index-scroll {
   height: 100%;
   width: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   box-sizing: border-box;
+  /* #ifdef H5 */
+  padding-bottom: 120rpx;
+  /* #endif */
 }
 
 .scroll-inner {
-  padding-bottom: 120rpx;
   box-sizing: border-box;
+  /* #ifdef H5 */
+  padding-bottom: 160rpx;
+  /* #endif */
+  /* #ifndef H5 */
+  padding-bottom: 120rpx;
+  /* #endif */
 }
 
 .header {

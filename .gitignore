@@ -2,7 +2,7 @@
 __pycache__/
 *.pyc
 *.pyo
-server/*.db
+*.db
 *.egg-info/
 .venv/
 venv/
@@ -24,3 +24,19 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# 毕设文档 - 不提交
+*.docx
+*.pptx
+~$*
+设计文档/
+论文图片提取/
+师生问答交流*.txt
+毕业答辩可能问答.md
+系统类参考论文.md
+thesis/
+thesis-diagrams/
+data crawl/
+和导师的私聊.txt
+系统编码与实现.txt
+_docx_style_extract.json

@@ -500,13 +500,13 @@ def get_metabolism_insight():
     activity_factor = NutritionService.ACTIVITY_FACTORS.get(
         user.activity_level, 1.2
     )
-    data['current_formula_tdee'] = int(user.bmr * activity_factor)
+    data['current_formula_tdee'] = round(user.bmr * activity_factor)
 
     # 校准后推荐热量
     if data['is_calibrated']:
         coef = data.get('stored_coefficient', data['coefficient'])
-        calibrated_tdee = int(user.bmr * activity_factor * coef)
-        calibrated_goal = int(calibrated_tdee * float(user.goal_factor))
+        calibrated_tdee = round(user.bmr * activity_factor * coef)
+        calibrated_goal = round(calibrated_tdee * float(user.goal_factor))
         data['calibrated_tdee'] = calibrated_tdee
         data['calibrated_daily_goal'] = calibrated_goal
         data['original_daily_goal'] = user.daily_calorie_goal

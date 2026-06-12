@@ -65,9 +65,9 @@ class NutritionService:
         """
         base = 10 * float(weight_kg) + 6.25 * height_cm - 5 * age
         if gender == 0:  # 男性
-            return int(base + 5)
+            return round(base + 5)
         else:  # 女性或其他
-            return int(base - 161)
+            return round(base - 161)
     
     @classmethod
     def calculate_daily_calorie(cls, bmr, activity_level, health_goal, goal_factor=None):
@@ -82,7 +82,7 @@ class NutritionService:
             if goal_factor is not None
             else cls.get_default_goal_factor(health_goal)
         )
-        return int(bmr * activity_factor * effective_goal_factor)
+        return round(bmr * activity_factor * effective_goal_factor)
     
     @classmethod
     def get_default_nutrient_ratios(cls, health_goal=1):

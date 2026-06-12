@@ -1,6 +1,5 @@
 """食物库API"""
 from flask import Blueprint, request, g
-from sqlalchemy import or_
 from app.extensions import db
 from app.models import Food, FoodCategory, FavoriteFood
 from app.utils.response import success, error
